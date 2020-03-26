@@ -122,6 +122,22 @@ class DAO
         return $datos;
     }
 
+    public static function usuarioObtenerRecord()
+    {
+        $rs = self::ejecutarConsulta("SELECT RecordUsuario FROM recordjugador WHERE idJuego=? AND idUsuario=?", ['999','1']);
+
+        return $rs[0]['RecordUsuario'];
+    }
+
+    public static function actualizarRecord($nuevoRecord): void
+    {
+        self::ejecutarActualizacion(
+            "UPDATE recordjugador SET RecordUsuario=? WHERE idJuego=? AND idUsuario=?",
+            [$nuevoRecord,'999','1']
+        );
+    }
+
+
 
 
 
