@@ -10,8 +10,8 @@ move_uploaded_file($product_image_tmp,"JuegoImagen/$product_image");
 $product_link = $_FILES['link']['name'];
 $product_link_tmp = $_FILES['link']['tmp_name'];
 move_uploaded_file($product_link_tmp,"Juego/$product_link");
-        DAO::ejecutarActualizacion("INSERT INTO `juegos`( `nombre`, `descripcion`, `link`, `imagen`) VALUES (?,?,?,?)",["juego","descripcion","./administrador/Juego/".$product_link,"./administrador/JuegoImagen/".$product_image]);
-        header("./verimagen.php");
+        DAO::ejecutarActualizacion("INSERT INTO `juegos`( `nombre`, `descripcion`, `link`, `imagen`) VALUES (?,?,?,?)",["juego","descripcion",$product_link,$product_image]);
+        header("././verimagen.php");
 
 
 ?>
