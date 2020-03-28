@@ -1,6 +1,6 @@
 <?php
-require_once "./administrador/dao.php";
-require_once "./administrador/Juego.php";
+require_once "./admin/dao.php";
+require_once "./admin/Juego.php";
 $juegos=DAO::juegosObtenerTodos();
 ?>
 
@@ -23,16 +23,16 @@ $juegos=DAO::juegosObtenerTodos();
             <a href='producto-detalle.php?id=<?=$juego->getId()?>'><?=$juego->getNombre()?></a>
         </td>
         <td>
-            <img src="<?=$juego->getImagen()?>" alt="">
+            <img src="./admin/JuegoImagen/<?=$juego->getImagen()?>" alt="">
 
         </td>
         <td>
-            <a href='<?=$juego->getLink()?>'>JUGARRR</a>
+            <a href='./admin/Juego/<?=$juego->getLink()?>'>JUGARRR</a>
            
         </td>
 
     </tr>
 <?php } ?>
-<a href="administrador/subirJuego.php">subir juego</a>
+<a href="admin/subirJuego.php">subir juego</a>
 </body>
 </html>
