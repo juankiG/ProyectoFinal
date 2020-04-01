@@ -9,6 +9,8 @@ const columnas = canvas.width / escala;
 
 var snake;
 
+
+
 (function setup(){
  snake = new Snake();
  fruta = new Fruta();
@@ -44,6 +46,7 @@ var snake;
         bloque2.actualizarUbicacion();
         bloque3.actualizarUbicacion();
         bloque4.actualizarUbicacion();
+
 
     }
 
