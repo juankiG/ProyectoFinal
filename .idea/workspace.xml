@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="11758e1f-08ce-4b5c-b000-297add1aae32" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/DaoYClases/clases.php" afterDir="false" />
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/administrador/utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/DaoYClases/utilidades.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/verimagen.php" beforeDir="false" afterPath="$PROJECT_DIR$/verimagen.php" afterDir="false" />
     </list>
+=======
+    <list default="true" id="11758e1f-08ce-4b5c-b000-297add1aae32" name="Default Changelist" comment="" />
+>>>>>>> PONG
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +61,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -101,7 +105,11 @@
       <workItem from="1584211861158" duration="2151000" />
       <workItem from="1584268287225" duration="6112000" />
       <workItem from="1585395277155" duration="6989000" />
+<<<<<<< HEAD
       <workItem from="1586949828733" duration="9812000" />
+=======
+      <workItem from="1585501571303" duration="51000" />
+>>>>>>> PONG
     </task>
     <servers />
   </component>
