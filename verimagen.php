@@ -1,6 +1,5 @@
 <?php
-require_once "./admin/dao.php";
-require_once "./admin/Juego.php";
+require_once "_com/comunes-app.php";
 $juegos=DAO::juegosObtenerTodos();
 ?>
 
@@ -20,10 +19,10 @@ $juegos=DAO::juegosObtenerTodos();
 <?php foreach ($juegos as $juego) { ?>
     <tr>
         <td>
-            <a href='producto-detalle.php?id=<?=$juego->getId()?>'><?=$juego->getNombre()?></a>
+            <a href='juego-detalle.php?id=<?=$juego->getId()?>'><?=$juego->getNombre()?></a>
         </td>
         <td>
-            <img src="./admin/JuegoImagen/<?=$juego->getImagen()?>" alt="">
+            <img src="./admin/JuegoImagen/<?=$juego->getImg()?>" alt="">
 
         </td>
         <td>
@@ -34,5 +33,6 @@ $juegos=DAO::juegosObtenerTodos();
     </tr>
 <?php } ?>
 <a href="admin/subirJuego.php">subir juego</a>
+<a href="sesion-cerrar.php">cerrar sesion</a>
 </body>
 </html>
