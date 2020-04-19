@@ -62,7 +62,7 @@ function garantizarSesion()
                 borrarCookieRecuerdame($email);
 
                 // REDIRIGIR A INICIAR SESIÓN PARA IMPEDIR QUE ESTE USUARIO VISUALICE CONTENIDO PRIVADO.
-                redireccionar("index.php");
+                redireccionar("sesion-inicio.php");
             }
         } else if (vieneFormularioDeInicioDeSesion()) { // SÍ hay formulario enviado. Lo comprobaremos contra la BD.
             echo"por alli";
@@ -77,11 +77,11 @@ function garantizarSesion()
                 return true;
                 // >>> Y DEJAMOS QUE SE CONTINÚE EJECUTANDO EL PHP QUE NOS LLAMÓ... >>>
             } else { // Si vienen 0 filas, no existe ese usuario o la contraseña no coincide.
-               redireccionar("index.php?incorrecto=true");
+               redireccionar("sesion-inicio.php?incorrecto=true");
             }
         } else { // NO hay ni sesión, ni cookie, ni formulario enviado.
             // REDIRIGIMOS PARA QUE NO SE VISUALICE CONTENIDO PRIVADO:
-            redireccionar("index.php");
+            redireccionar("sesion-inicio.php");
         }
     }
 }
