@@ -121,7 +121,7 @@ function tln_findnxstr($body, $offset, $needle)
  * @return array|boolean  Returns a false if no matches found, or an array
  *				   with the following members:
  *				   - integer with the location of the match within $body
- *				   - string with whatever content between offset and the match
+ *				   - string with whatever contenido between offset and the match
  *				   - string with whatever it is we matched
  */
 function tln_findnxreg($body, $offset, $reg)
@@ -178,7 +178,7 @@ function tln_getnxtag($body, $offset)
      *	  <a href="blah">
      * 2. Closing tag, e.g.:
      *	  </a>
-     * 3. XHTML-style content-less tag, e.g.:
+     * 3. XHTML-style contenido-less tag, e.g.:
      *	  <img src="blah"/>
      */
     switch (substr($body, $pos, 1)) {
@@ -372,7 +372,7 @@ function tln_getnxtag($body, $offset)
                  * Here are 3 possibilities:
                  * "'"	attribute type 1
                  * '"'	attribute type 2
-                 * everything else is the content of tag type 3
+                 * everything else is the contenido of tag type 3
                  */
                 $quot = substr($body, $pos, 1);
                 if ($quot == '\'') {
@@ -739,8 +739,8 @@ function tln_fixstyle($body, $pos, $trans_image_path, $block_external_images)
     /**
     * Fix url('blah') declarations.
     */
-    //   $content = preg_replace("|url\s*\(\s*([\'\"])\s*\S+script\s*:.*?([\'\"])\s*\)|si",
-    //                           "url(\\1$trans_image_path\\2)", $content);
+    //   $contenido = preg_replace("|url\s*\(\s*([\'\"])\s*\S+script\s*:.*?([\'\"])\s*\)|si",
+    //                           "url(\\1$trans_image_path\\2)", $contenido);
 
     // first check for 8bit sequences and disallowed control characters
     if (preg_match('/[\16-\37\200-\377]+/',$content)) {
@@ -938,7 +938,7 @@ function tln_sanitize(
                         $tagtype = 3;
                     }
                     /**
-                     * See if we should skip this tag and any content
+                     * See if we should skip this tag and any contenido
                      * inside it.
                      */
                     if ($tagtype == 1

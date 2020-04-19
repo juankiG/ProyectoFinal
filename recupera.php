@@ -15,7 +15,7 @@
 				<div class="panel panel-info" >
 					<div class="panel-heading">
 						<div class="panel-title">Recuperar Password</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
+						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="sesion-inicio.php">Iniciar Sesi&oacute;n</a></div>
 					</div>     
 					
 					<div style="padding-top:30px" class="panel-body" >

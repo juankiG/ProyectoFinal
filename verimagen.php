@@ -1,6 +1,6 @@
 <?php
 require_once "_com/comunes-app.php";
-$juegos=DAO::juegosObtenerTodos();
+$arraySolicitudes=DAO::juegosObtenerTodos();
 ?>
 
 <html>
@@ -16,7 +16,7 @@ $juegos=DAO::juegosObtenerTodos();
         }</style>
 </head>
 <body>
-<?php foreach ($juegos as $juego) { ?>
+<?php foreach ($arraySolicitudes as $juego) { ?>
     <tr>
         <td>
             <a href='juego-detalle.php?id=<?=$juego->getId()?>'><?=$juego->getNombre()?></a>

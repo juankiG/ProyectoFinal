@@ -55,7 +55,7 @@ class DAO
 
     private static function crearClienteDesdeRs(array $rs): Cliente
     {
-        return new Cliente($rs[0]["id"], $rs[0]["Nombre"], $rs[0]["Usuario"], $rs[0]["correoElectronico"], $rs[0]["contrasenna"], $rs[0]["tipousuario"], $rs[0]["codigoCookie"]);
+        return new Cliente($rs[0]["id"], $rs[0]["nombre"], $rs[0]["usuario"], $rs[0]["correoElectronico"], $rs[0]["contrasenna"], $rs[0]["tipousuario"], $rs[0]["codigoCookie"]);
     }
 
     public static function clienteObtenerPorId(int $id): Cliente
@@ -64,12 +64,14 @@ class DAO
         return self::crearClienteDesdeRs($rs);
     }
 
+
+
     public static function clienteObtenerPorUsuarioYContrasenna($usuario, $contrasenna)
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE BINARY usuario=? AND BINARY contrasenna=?",
             [$usuario, $contrasenna]);
         if ($rs) {
-            return new Cliente($rs[0]["id"], $rs[0]["Nombre"], $rs[0]["Usuario"], $rs[0]["correoElectronico"], $rs[0]["contrasenna"], $rs[0]["tipousuario"], $rs[0]["codigoCookie"]);
+            return new Cliente($rs[0]["id"], $rs[0]["nombre"], $rs[0]["usuario"], $rs[0]["correoElectronico"], $rs[0]["contrasenna"], $rs[0]["tipousuario"], $rs[0]["codigoCookie"]);
         } else {
             return null;
         }
@@ -91,8 +93,9 @@ class DAO
         $rs = self::ejecutarConsulta("select * from usuarios where correoElectronico=? and codigoCookie=?", [$email, $cookie]);
         return self::crearClienteDesdeRs($rs);
     }
+
     public static function clienteAgregarBD($nombre,$usuario,$contrasenna,$email){
-         self::ejecutarConsulta("INSERT INTO usuarios ( nombre,usuario, correoElectronico,contrasenna) VALUES ( ?, ?, ?,?);",[$nombre,$usuario,$contrasenna,$email]);
+         self::ejecutarConsulta("INSERT INTO usuarios ( nombre, usuario,contrasenna, correoElectronico) VALUES ( ?, ?, ?,?);",[$nombre,$usuario,$contrasenna,$email]);
 
     }
 

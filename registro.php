@@ -14,7 +14,7 @@
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<div class="panel-title">Reg&iacute;strate</div>
-						<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="index.php">Iniciar Sesi&oacute;n</a></div>
+						<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="sesion-inicio.php">Iniciar Sesi&oacute;n</a></div>
 					</div>  
 					
 					<div class="panel-body" >

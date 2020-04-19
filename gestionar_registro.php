@@ -5,6 +5,6 @@ $usuario=$_REQUEST["usuario"];
 $contrasenna=$_REQUEST["password"];
 $email=$_REQUEST["email"];
 DAO::clienteAgregarBD($nombre,$usuario,$contrasenna,$email);
-redireccionar("index.php");
+redireccionar("sesion-inicio.php");
 
 ?>

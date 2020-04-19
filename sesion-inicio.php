@@ -2,7 +2,7 @@
 
 require_once "_com/requireonces-comunes.php";
 
-if (haySesionIniciada()) redireccionar("verimagen.php");
+if (haySesionIniciada()) redireccionar("usuarioPantallaPrincipal.php");
 
 ?>
 <html>
@@ -37,7 +37,7 @@ if (haySesionIniciada()) redireccionar("verimagen.php");
 						
 						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 						
-						<form id="loginform" class="form-horizontal" role="form" action="verimagen.php" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form" action="pantallaInicio.php" method="POST" autocomplete="off">
 							
 							<div style="margin-bottom: 25px" class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
