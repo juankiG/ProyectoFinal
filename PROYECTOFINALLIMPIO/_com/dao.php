@@ -51,7 +51,7 @@ class DAO
 
     private static function crearUsuarioDesdeRs(array $rs): Usuario
     {
-        return new Usuario($rs[0]["id"], $rs[0]["nombre"], $rs[0]["email"], $rs[0]["contrasenna"], $rs[0]["tipoUsuario"], $rs[0]["nombreUsuario"], $rs[0]["codigoCookie"]);
+        return new Usuario($rs[0]["id"], $rs[0]["nombre"], $rs[0]["email"], $rs[0]["contrasenna"], $rs[0]["tipoUsuario"], $rs[0]["nombreUsuario"], $rs[0]["codigoCookie"],$rs[0]["token"]);
     }
 
     public static function usuarioObtenerPorId(int $id): Usuario
@@ -74,6 +74,7 @@ class DAO
         }
     }
 
+
     public static function usuarioObtenerPorUsuarioYCodigoCookie($nombreUsuario, $codigoCookie): Usuario
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=? AND BINARY codigoCookie=?",
@@ -93,6 +94,16 @@ class DAO
             self::ejecutarActualizacion("UPDATE usuarios SET codigoCookie=? WHERE nombreUsuario=?", [$codigoCookie, $nombreUsuario]);
         } else {
             self::ejecutarActualizacion("UPDATE usuarios SET codigoCookie=NULL WHERE nombreUsuario=?", [$nombreUsuario]);
+        }
+
+    }
+    public static function usuarioGuardarToken(string $nombreUsuario, string $token)
+    {
+        //redireccionar($codigoCookie);
+        if ($token != "") {
+            self::ejecutarActualizacion("UPDATE usuarios SET token=? WHERE nombreUsuario=?", [$token, $nombreUsuario]);
+        } else {
+            self::ejecutarActualizacion("UPDATE usuarios SET token=NULL WHERE nombreUsuario=?", [$nombreUsuario]);
         }
 
     }
@@ -128,7 +139,13 @@ class DAO
         );
 
     }
+    public static function clienteAgregarBD($nombre, $nombreUsuario, $contrasenna,$email): void
+    {
+        self::ejecutarActualizacion(
+            "INSERT INTO `usuarios`( `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`) VALUES (?,?,?,?,?);",[$nombre, $email, $contrasenna,0,$nombreUsuario]
+        );
 
+    }
 
     /* JUEGO */
 

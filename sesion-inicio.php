@@ -9,9 +9,9 @@ if (haySesionIniciada()) redireccionar("usuarioPantallaPrincipal.php");
 	<head>
 		<title>Login</title>
 		
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-		<script src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="PROYECTOFINALLIMPIO/user/css/bootstrap.min.css" >
+		<link rel="stylesheet" href="PROYECTOFINALLIMPIO/user/css/bootstrap-theme.min.css" >
+		<script src="PROYECTOFINALLIMPIO/user/js/bootstrap.min.js" ></script>
 		
 	</head>
 	
@@ -30,7 +30,7 @@ if (haySesionIniciada()) redireccionar("usuarioPantallaPrincipal.php");
 				<div class="panel panel-info" >
 					<div class="panel-heading">
 						<div class="panel-title">Iniciar Sesi&oacute;n</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="recupera.php">¿Se te olvid&oacute; tu contraseña?</a></div>
+						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="PROYECTOFINALLIMPIO/user/recuperarContrasennaUsuario.php">¿Se te olvid&oacute; tu contraseña?</a></div>
 					</div>     
 					
 					<div style="padding-top:30px" class="panel-body" >
@@ -63,7 +63,7 @@ if (haySesionIniciada()) redireccionar("usuarioPantallaPrincipal.php");
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-										No tiene una cuenta! <a href="registro.php">Registrate aquí</a>
+										No tiene una cuenta! <a href="PROYECTOFINALLIMPIO/user/registrarUsuario.php">Registrate aquí</a>
 									</div>
 								</div>
 							</div>    

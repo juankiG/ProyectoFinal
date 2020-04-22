@@ -25,9 +25,10 @@ class Usuario {
     private  $tipoUsuario;
     private  $nombreUsuario;
     private  $codigoCookie;
+    private $token;
 
 
-    public function __construct($id, $nombre, $email, $contrasenna, $tipoUsuario, $nombreUsuario, $codigoCookie)
+    public function __construct($id, $nombre, $email, $contrasenna, $tipoUsuario, $nombreUsuario, $codigoCookie,$token)
     {
         $this->setId($id);
         $this->setNombre($nombre);
@@ -36,6 +37,7 @@ class Usuario {
         $this->setTipoUsuario($tipoUsuario);
         $this->setNombreUsuario($nombreUsuario);
         $this->setCodigoCookie($codigoCookie);
+        $this->setToken($token);
 
 
 
@@ -85,6 +87,11 @@ class Usuario {
     {
         return $this->nombreUsuario;
     }
+    public function getToken()
+    {
+        return $this->token;
+    }
+
 
     public function setNombreUsuario($nombreUsuario)
     {
@@ -99,6 +106,13 @@ class Usuario {
     public function setCodigoCookie($codigoCookie)
     {
         $this->codigoCookie = $codigoCookie;
+    }
+
+
+
+    private function setToken($token)
+    {
+        $this->token=$token;
     }
 }
 

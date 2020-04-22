@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2020 a las 13:55:40
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 22-04-2020 a las 17:17:21
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +23,29 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `proyectofinaldb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `proyectofinaldb`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `emailadmin`
+--
+
+CREATE TABLE `emailadmin` (
+  `id` int(11) NOT NULL,
+  `host` varchar(50) DEFAULT NULL,
+  `puerto` int(11) DEFAULT NULL,
+  `emailEmisor` varchar(50) DEFAULT NULL,
+  `contrasenna` varchar(50) DEFAULT NULL,
+  `asunto` varchar(50) DEFAULT NULL,
+  `cuerpo` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `emailadmin`
+--
+
+INSERT INTO `emailadmin` (`id`, `host`, `puerto`, `emailEmisor`, `contrasenna`, `asunto`, `cuerpo`) VALUES
+(1, 'smtp.gmail.com', 587, 'ciclosuperiorjuanki@gmail.com', 'Juanki100398', 'Bienvenid@', 'Hola, Buenas. <br>Saludos');
 
 -- --------------------------------------------------------
 
@@ -99,21 +122,31 @@ CREATE TABLE `usuarios` (
   `contrasenna` varchar(25) NOT NULL,
   `tipoUsuario` int(11) NOT NULL,
   `nombreUsuario` varchar(30) NOT NULL,
-  `codigoCookie` varchar(50) DEFAULT NULL
+  `codigoCookie` varchar(50) DEFAULT NULL,
+  `token` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`, `codigoCookie`) VALUES
-(2, 'fran', 'fran@gmail.com', '1234', 0, 'basedfran', 'sa2GTAWZ5krdIMAnYkEB1HEUgW084U6p'),
-(3, 'juancarlos', 'juanki@gmail.com', '1234', 0, 'juanki', '0'),
-(4, 'ivan', 'ivan@gmail.com', '1234', 0, 'ivanA', '0');
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`, `codigoCookie`, `token`) VALUES
+(2, 'fran', 'fran@gmail.com', '1234', 0, 'basedfran', 'sa2GTAWZ5krdIMAnYkEB1HEUgW084U6p', ''),
+(3, 'juancarlos', 'ciclosuperiorjuanki@gmail.com', '1234', 0, 'juanki', NULL, ''),
+(4, 'ivan', 'ivan@gmail.com', '1234', 0, 'ivanA', '0', ''),
+(5, 'pepe', 'j@h.com', '1234', 0, 'pee', NULL, ''),
+(6, 'prueba', 'p@j.com', '1234', 0, 'pru', NULL, ''),
+(39, 'juanki', 'ciclosuperiorjuanki@gmail.com', '1234', 0, 'juanki1', NULL, 'EIl4bduNkSfx6lK46dfAnZuasDsA5ssT');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `emailadmin`
+--
+ALTER TABLE `emailadmin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `juegos`
@@ -155,7 +188,7 @@ ALTER TABLE `juegos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas
