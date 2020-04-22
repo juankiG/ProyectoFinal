@@ -51,7 +51,7 @@ class DAO
 
     private static function crearUsuarioDesdeRs(array $rs): Usuario
     {
-        return new Usuario($rs[0]["id"], $rs[0]["nombre"], $rs[0]["email"], $rs[0]["contrasenna"], $rs[0]["tipoUsuario"], $rs[0]["nombreUsuario"], $rs[0]["codigoCookie"]);
+        return new Usuario($rs[0]["id"], $rs[0]["nombre"], $rs[0]["email"], $rs[0]["contrasenna"], $rs[0]["tipoUsuario"], $rs[0]["nombreUsuario"], $rs[0]["codigoCookie"],$rs[0]["token"]);
     }
 
     public static function usuarioObtenerPorId(int $id): Usuario
@@ -128,7 +128,13 @@ class DAO
         );
 
     }
+    public static function clienteAgregarBD($nombre, $nombreUsuario, $contrasenna,$email): void
+    {
+        self::ejecutarActualizacion(
+            "INSERT INTO `usuarios`( `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`) VALUES (?,?,?,?,?);",[$nombre, $email, $contrasenna,0,$nombreUsuario]
+        );
 
+    }
 
     /* JUEGO */
 
