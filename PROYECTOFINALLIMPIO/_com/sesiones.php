@@ -66,7 +66,9 @@ function garantizarSesion()
         if (vieneFormularioDeInicioDeSesion()) { // SÍ hay formulario enviado. Lo comprobaremos contra la BD.
 
             $usuario = DAO::usuarioObtenerPorUsuarioYContrasenna($_REQUEST['nombreUsuario'], $_REQUEST['contrasenna']);
-
+            if( $usuario->getToken()==NULL){
+                redireccionar("../user/sesion-inicio.php?noToken=true");
+            }
             if ($usuario) { // Si viene un usuario es que el inicio de sesión ha sido exitoso.
                 anotarDatosSesionRam($usuario);
 
@@ -119,6 +121,16 @@ function generarCookieRecuerdame($nombreUsuario)
     // TODO Para una seguridad óptima convendriá anotar en la BD la fecha de caducidad de la cookie y no aceptar ninguna cookie pasada dicha fecha.
 
     establecerCookieRecuerdame($nombreUsuario, $codigoCookie);
+}
+
+
+function generarToken($nombreUsuario)
+{
+    // Creamos un código cookie muy complejo (no necesariamente único).
+    $token = generarCadenaAleatoria(32); // Random...
+
+    DAO::usuarioGuardarToken($nombreUsuario, $token);
+
 }
 
 function borrarCookieRecuerdame($nombreUsuario)

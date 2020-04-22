@@ -2,7 +2,7 @@
 session_start();
 require_once "../_com/sesiones.php";
 
-if (haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("usuarioPantallaPrincipal.php");
+if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToken'])) redireccionar("usuarioPantallaPrincipal.php");
 
 ?>
 
@@ -22,6 +22,9 @@ if (haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("usuarioPan
 <?php
 if (isset($_REQUEST["incorrecto"])) {
     echo "<p>Usuario o contraseña incorrectos.</p>";
+}
+if (isset($_REQUEST["noToken"])) {
+    echo "<p>Debes Activar la Cuenta .</p>";
 }
 if (isset($_REQUEST["sesionCerrada"])) {
     echo "<p>Ha salido correctamente. Su sesión está ahora cerrada.</p>";

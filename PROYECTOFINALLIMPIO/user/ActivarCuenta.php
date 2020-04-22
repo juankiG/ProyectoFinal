@@ -1,12 +1,16 @@
 <?php
-include 'funcs/funcs.php';
+require_once "../_com/requireonces-comunes.php";
+
+
+require_once "../_com/emailFuncion.php";
+
 
 if(isset($_REQUEST["id"]))
 {
     $idUsuario = $_REQUEST['id'];
 }
-$cliente= DAO::clienteObtenerPorId($idUsuario);
-
+$cliente= DAO::usuarioObtenerPorId($idUsuario);
+generarToken($cliente->getNombreUsuario());
 ?>
 <html>
 <head>
@@ -21,10 +25,10 @@ $cliente= DAO::clienteObtenerPorId($idUsuario);
 <div class="container">
     <div class="jumbotron">
 
-        <h1>Felicidades <?php echo $cliente->getNombre(); ?>por activar tu ceunta en MINIGAMES</h1>
+        <h1>Felicidades <?php echo $cliente->getNombre(); ?> por activar tu ceunta en MINIGAMES</h1>
 
         <br />
-        <p><a class="btn btn-primary btn-lg" href="index.php" role="button">Iniciar Sesi&oacute;n</a></p>
+        <p><a class="btn btn-primary btn-lg" href="sesion-inicio.php" role="button">Iniciar Sesi&oacute;n</a></p>
     </div>
 </div>
 </body>

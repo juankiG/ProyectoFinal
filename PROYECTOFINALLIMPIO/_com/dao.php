@@ -74,6 +74,7 @@ class DAO
         }
     }
 
+
     public static function usuarioObtenerPorUsuarioYCodigoCookie($nombreUsuario, $codigoCookie): Usuario
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=? AND BINARY codigoCookie=?",
@@ -93,6 +94,16 @@ class DAO
             self::ejecutarActualizacion("UPDATE usuarios SET codigoCookie=? WHERE nombreUsuario=?", [$codigoCookie, $nombreUsuario]);
         } else {
             self::ejecutarActualizacion("UPDATE usuarios SET codigoCookie=NULL WHERE nombreUsuario=?", [$nombreUsuario]);
+        }
+
+    }
+    public static function usuarioGuardarToken(string $nombreUsuario, string $token)
+    {
+        //redireccionar($codigoCookie);
+        if ($token != "") {
+            self::ejecutarActualizacion("UPDATE usuarios SET token=? WHERE nombreUsuario=?", [$token, $nombreUsuario]);
+        } else {
+            self::ejecutarActualizacion("UPDATE usuarios SET token=NULL WHERE nombreUsuario=?", [$nombreUsuario]);
         }
 
     }

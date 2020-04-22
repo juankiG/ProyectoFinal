@@ -13,19 +13,15 @@ $email=$_REQUEST["email"];
 DAO::clienteAgregarBD($nombre,$usuario,$contrasenna,$email);
 
 
+
+
 $cliente=DAO::usuarioObtenerPorUsuarioYContrasenna($usuario,$contrasenna);
-
+$clienteid=$cliente->getId();
+$url="http://localhost/php/ProyectoFP/PROYECTOFINALLIMPIO/user/ActivarCuenta.php?id=".$clienteid."";
 $asunto = 'Activar Cuenta - Sistema de Usuarios';
-$cuerpo=  'mundo';
+$cuerpo=  "Estimado $nombre: <br /><br />Para continuar con el proceso de registro, es indispensable de click en la siguiente liga <a href='$url'>Activar Cuenta</a>";
 
-if(enviarEmail($email, $nombre, $asunto, $cuerpo)){
-
-    echo "Para terminar el proceso de registro siga las instrucciones que le hemos enviado la direccion de correo electronico: $email";
-    echo "<br><a href='sesion-inicio.php' >Iniciar Sesion</a>";
-    exit;
-} else {
-    redireccionar("registrarUsuario.php?incorrecto=true");
-}
+enviarEmail($email, $nombre, $asunto, $cuerpo);
 
 
 ?>

@@ -3,6 +3,7 @@ session_start();
 require_once "../_com/comunes-app.php";
 $id = $_SESSION['id'];
 $usuario= DAO::usuarioObtenerPorId($id);
+
 $juegos = DAO::juegoObtenerTodos();
 
 ?>
