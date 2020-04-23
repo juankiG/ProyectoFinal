@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<title>Recuperar Password</title>
@@ -10,7 +11,11 @@
 	
 	<body>
 		
-		<div class="container">    
+		<div class="container">
+            <?php
+            if(isset($_REQUEST['noEmail'])){
+                echo "<p>El correo no existe .</p>";
+            }?>
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
 				<div class="panel panel-info" >
 					<div class="panel-heading">
@@ -22,7 +27,7 @@
 						
 						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 						
-						<form id="loginform" class="form-horizontal" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form" action="gestionarRecuperarContrasenna.php" method="POST" autocomplete="off">
 							
 							<div style="margin-bottom: 25px" class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -31,7 +36,7 @@
 							
 							<div style="margin-top:10px" class="form-group">
 								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
+                                    <button id="btn-login" type="submit" class="btn btn-success">Enviar</a></button>
 								</div>
 							</div>
 							
