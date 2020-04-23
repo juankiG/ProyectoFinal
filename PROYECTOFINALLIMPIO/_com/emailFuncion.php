@@ -11,6 +11,12 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo)
     $mail->Port = '587';//Modificar
     $mail->Username = 'ciclosuperiorjuanki@gmail.com'; //Modificar
     $mail->Password = 'Juanki100398'; //Modificar
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        ));
 
     $mail->setFrom('ciclosuperiorjuanki@gmail.com', 'MINIGAMES');//Modificar
 
