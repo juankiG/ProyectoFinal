@@ -29,7 +29,7 @@ class DAO
         return $pdo;
     }
 
-    private static function ejecutarConsulta(string $sql, array $parametros): array
+    public static function ejecutarConsulta(string $sql, array $parametros): array
     {
         if (!isset(self::$pdo)) self::$pdo = self::obtenerPdoConexionBd();
 
@@ -79,6 +79,22 @@ class DAO
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=? AND BINARY codigoCookie=?",
             [$nombreUsuario, $codigoCookie]);
+
+        if ($rs) {
+            return self::crearUsuarioDesdeRs($rs);
+        } else {
+            return null;
+        }
+    }
+    public static function usuarioCambiarContrasenna($contrasenna, $email)
+    {
+         self::ejecutarActualizacion("UPDATE usuarios SET contrasenna=? WHERE email=?", [$contrasenna,$email ]);
+
+    }
+    public static function usuarioObtenerPorCorreo($correo): Usuario
+    {
+        $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE email=?",
+            [$correo]);
 
         if ($rs) {
             return self::crearUsuarioDesdeRs($rs);

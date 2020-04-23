@@ -20,7 +20,7 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo)
     $mail->Body = $cuerpo;
     $mail->IsHTML(true);
     if ($mail->send()) {
-        echo "Para terminar el proceso de registro siga las instrucciones que le hemos enviado la direccion de correo electronico: $email";
+        echo "Para terminar el proceso siga las instrucciones que le hemos enviado la direccion de correo electronico: $email";
         echo "<br><a href='../user/sesion-inicio.php' >Iniciar Sesion</a>";
     } else {
 
