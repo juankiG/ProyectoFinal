@@ -1,14 +1,16 @@
 <?php
-require_once "../../administrador/dao.php";
-require_once "../../administrador/utilidades.php";
 
-$recordActual= DAO::usuarioObtenerRecord();
+require_once "../_com/comunes-app.php";
+
+$idjuego=$_REQUEST['idJuego'];
+
+$recordActual= DAO::usuarioObtenerRecord($_SESSION['id'],$idjuego);
 
 if($_REQUEST['puntuacion'] > $recordActual){
-DAO::actualizarRecord($_REQUEST['puntuacion']);
-redireccionar("jugarDeNuevo.php?record=".$_REQUEST['puntuacion']);
+DAO::actualizarRecord($_SESSION['id'],$idjuego,$_REQUEST['puntuacion']);
+redireccionar("jugarDeNuevo.php?record=".$_REQUEST['puntuacion']."&idJuego=".$idjuego);
 }
-redireccionar("jugarDeNuevo.php?");
+redireccionar("jugarDeNuevo.php?record=".$_REQUEST['puntuacion']."&idJuego=".$idjuego);
 
 
 

@@ -39,12 +39,17 @@ foreach ($juegos as $juego) {
     $linkImagen= $juego->getLinkImagen();
 
 ?>
-    <p><a href="../juegos/<?= $nombreJuego?>Game/pantallaInicio.php"><img src="<?= $linkImagen?>.jpg"/></a></p>
+    <p><a href="../juegos/<?= $nombreJuego?>Game/index.php?juego=<?= $nombreJuego?>"><img src="<?= $linkImagen?>"/></a></p>
 
 <?php
 }
 ?>
+<?php
+if($usuario->getTipoUsuario()==1) {
+    ?>
 
-
+    <a href=".././_ad/subirJuego.php">subir juego</a><?php
+}
+?>
 </body>
 </html>

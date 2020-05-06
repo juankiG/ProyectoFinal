@@ -192,16 +192,6 @@ class DAO
         }
 
     }
-    public static function juegoObtenerPorID($idJuego)
-    {
-        $rs = self::ejecutarConsulta("SELECT * FROM juegos WHERE id=?", [$idJuego]);
-        if($rs){
-            return self::crearJuegoDesdeRs($rs);
-        }else{
-            return null;
-        }
-
-    }
     public static function juegoAgegarBD($juego,$descripcion,$product_link,$product_image)
     {
         self::ejecutarActualizacion("INSERT INTO `juegos`( `nombre`, `descripcion`, `linkImagen`, `imagen`) VALUES (?,?,?,?)",[$juego,$descripcion,$product_link,$product_image]);

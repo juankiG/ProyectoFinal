@@ -1,5 +1,9 @@
 <?php
+require_once "../_com/comunes-app.php";
 if(isset($_REQUEST['record'])){
+    $idJuego=$_REQUEST['idJuego'];
+
+   $juego= DAO::juegoObtenerPorID($idJuego);
 ?>
 <!doctype html>
 
@@ -16,8 +20,8 @@ if(isset($_REQUEST['record'])){
 
 <body>
  <h1>Has perdido, pero has conseguido un nuevo record de: <?=$_REQUEST['record']?></h1>
- <form action="index.php" method="POST">
-     <input type="hidden" name="juego" value="snake">
+ <form action="../juegos/<?= $juego->getNombre()?>Game/index.php?juego=<?= $juego->getNombre()?>" method="POST">
+
      <input type="submit" name="jugar" value="jugar de nuevo!">
  </form>
 </body>

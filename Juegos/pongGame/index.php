@@ -1,3 +1,14 @@
+<?php
+require_once "../../_com/sesiones.php";
+
+if (!haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("../../user/sesion-inicio.php");
+$juegoActual= $_REQUEST['juego'];
+
+$juego= DAO::juegoObtenerPorNombre($juegoActual);
+
+$recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -338,7 +349,7 @@
 
             // Draw the winning score (center)
             this.context.fillText(
-                'Round ' + (this.ball.speed),
+                'Round ' + (this.round+1),
                 (this.canvas.width / 2),
                 35
             );
@@ -385,8 +396,8 @@
         _resetTurn: function(victor, loser) {
 
             this.ball = Ball.new.call(this, 10);
-            this.player.speed=10;
-            this.paddle.speed=10;
+            this.player.speed=9;
+            this.paddle.speed=9;
             this.turn = loser;
             this.timer = (new Date()).getTime();
 
@@ -412,4 +423,10 @@
     var Pong = Object.assign({}, Game);
     Pong.initialize();
 </script>
+
+<div>
+    <h1 class="puntuacion"></h1>
+    <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
+</div>
+
 </html>
