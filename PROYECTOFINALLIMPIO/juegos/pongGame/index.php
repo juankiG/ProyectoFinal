@@ -436,4 +436,20 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
 </div>
 
+<div class="descripcion">
+
+    <?php
+    require_once "../DescripcionJuego.php";
+    ?>
+
+</div>
+<div>
+    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+</div>
+
+<div class="record">
+    <?php
+    require_once "../RecordJuego.php";
+    ?>
+</div>
 </html>

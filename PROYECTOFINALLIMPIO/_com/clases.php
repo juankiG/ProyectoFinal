@@ -168,6 +168,29 @@ class Juego {
     }
 
 }
+class Record{
+    private $nombre;
+    private $record;
+
+    public function __construct($nombre,$record)
+    {
+        $this->nombre=$nombre;
+        $this->record=$record;
+    }
+
+
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+
+    public function getRecord()
+    {
+        return $this->record;
+    }
+
+}
 
 
 

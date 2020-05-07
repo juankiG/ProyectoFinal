@@ -146,6 +146,19 @@ class DAO
         }
 
     }
+    public static function usuariosObtenerRecord( $idJuego)
+    {
+
+        $records = [];
+        $rs = self::ejecutarConsulta("SELECT nombreUsuario, recordUsuario FROM `recordusuario` INNER JOIN usuarios on idUsuario=id WHERE idJuego=? ORDER by recordusuario DESC", [ $idJuego]);
+
+        foreach ($rs as $fila) {
+            $record = new Record($fila["nombreUsuario"], $fila["recordUsuario"]);
+            array_push($records, $record);
+        }
+        return $records;
+
+    }
 
     public static function actualizarRecord($idUsuario, $idJuego, $nuevoRecord): void
     {

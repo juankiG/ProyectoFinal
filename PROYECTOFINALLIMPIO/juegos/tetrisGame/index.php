@@ -42,9 +42,24 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     <div>
         puntuación : <div id="puntuacion">0</div>
     </div>
-    <div>
-        <a href="">salir</a>
-    </div>
+
+<div class="descripcion">
+
+    <?php
+    require_once "../DescripcionJuego.php";
+    ?>
+
+</div>
+
+<div class="record">
+    <?php
+    require_once "../RecordJuego.php";
+    ?>
+</div>
+<div>
+    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+</div>
+
     <script >
         const I = [
             [

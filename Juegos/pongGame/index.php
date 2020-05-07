@@ -35,6 +35,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 </style>
 
 <body>
+<script>
+    var id="<?php echo $juego->getId();?>";
+
+</script>
 
 <canvas>
 </canvas>
@@ -233,7 +237,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                         beep1.play();
                         count+=1;
                         this.player.speed*=1.06;
-                        this.paddle.speed*=1.04;
+                        this.paddle.speed*=1.0;
                         this.ball.speed *=1.06
                     }
                 }
@@ -264,7 +268,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             else if (this.paddle.score === rounds[this.round]) {
                 this.over = true;
                 setTimeout(function () { Pong.endGameMenu('Game Over!'); }, 1000);
+                document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.round ;
+
             }
+
         },
 
         // Draw the objects to the canvas element
@@ -429,4 +436,20 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
 </div>
 
+<div class="descripcion">
+
+    <?php
+    require_once "../DescripcionJuego.php";
+    ?>
+
+</div>
+<div>
+    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+</div>
+
+<div class="record">
+    <?php
+    require_once "../RecordJuego.php";
+    ?>
+</div>
 </html>

@@ -5,6 +5,7 @@ if (!haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("../../use
 
 $juegoActual= $_REQUEST['juego'];
 
+
 $juego= DAO::juegoObtenerPorNombre($juegoActual);
 
 $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
@@ -34,14 +35,32 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     <title>Juega snake!</title>
 </head>
 <body>
+<script>
+    var id="<?php echo $juego->getId();?>";
 
+</script>
 <canvas class="canvas" id="canvas" height="300" width="300" style="background-color: #009900"></canvas>
 
 <div>
     <h1 class="puntuacion"></h1>
     <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
 </div>
+<div class="descripcion">
 
+    <?php
+    require_once "../DescripcionJuego.php";
+    ?>
+
+</div>
+
+<div class="record">
+    <?php
+    require_once "../RecordJuego.php";
+    ?>
+</div>
+<div>
+    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+</div>
 <script >
     function Fruta() {
         this.x;
@@ -155,10 +174,11 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         }
 
         this.haChocadoSerpiente = function () {
+
             for (let i = 0; i < this.cola.length; i++) {
                 if ((this.x === this.cola[i].x &&
                     this.y === this.cola[i].y)) {
-                    document.location.href = "guardarPuntuacion.php?idJuego=13&puntuacion=" + this.total ;
+                    document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.total ;
                     console.log("colision");
                     this.total = 0;
                     this.cola = [];
@@ -167,6 +187,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         }
 
         this.haChocadoBloque = function (
+
             bloque1x,
             bloque1y,
             bloque2x,
@@ -175,6 +196,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             bloque3y,
             bloque4x,
             bloque4y) {
+
             if ((this.x === bloque1x &&
                 this.y === bloque1y) ||
                 (this.x === bloque2x &&
@@ -185,7 +207,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                     this.y === bloque3y) ||
                 (this.x === bloque4x &&
                     this.y === bloque4y)) {
-                document.location.href = "guardarPuntuacion.php?idJuego=13&puntuacion=" + this.total ;
+                document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.total ;
                 console.log("colision");
                 this.total = 0;
                 this.cola = [];
