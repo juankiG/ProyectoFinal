@@ -264,4 +264,28 @@ class DAO
     }
 
 
+
+    /* MENSAJE DEL CHAT GENERAL */
+    public static function mensajesObtener(){
+        $mensajes=[];
+        $rs = self::ejecutarConsulta("  select *from chat order by id", []);
+
+        foreach ($rs as $fila) {
+            $juego = new Mensaje($fila["id"], $fila["idusuario"], $fila["mensaje"], $fila["fecha"]);
+            array_push($mensajes, $juego);
+        }
+        return $mensajes;
+
+    }
+
+    public static function mensajeInsertar($nombreUSuario, $mensaje)
+    {
+
+        self::ejecutarConsulta("INSERT INTO chat ( idusuario, mensaje) VALUES (?, ?)", [$nombreUSuario, $mensaje]);
+
+    }
+   public static function formatearFecha( $fecha){
+        return date('g:i a',strtotime($fecha));
+                }
+
 }

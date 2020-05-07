@@ -5,6 +5,8 @@ $id = $_SESSION['id'];
 $usuario= DAO::usuarioObtenerPorId($id);
 
 $juegos = DAO::juegoObtenerTodos();
+if(isset($_REQUEST['Enviar']))
+    DAO::mensajeInsertar($usuario->getId(),$_REQUEST['mensaje']);
 
 ?>
 
@@ -15,6 +17,7 @@ $juegos = DAO::juegoObtenerTodos();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilos.css">
     <title>Inicio</title>
 </head>
 <body>
@@ -45,11 +48,15 @@ foreach ($juegos as $juego) {
 }
 ?>
 <?php
+require_once "chatEnLinea.php";
+?>
+<?php
 if($usuario->getTipoUsuario()==1) {
     ?>
 
     <a href=".././_ad/subirJuego.php">subir juego</a><?php
 }
 ?>
+
 </body>
 </html>

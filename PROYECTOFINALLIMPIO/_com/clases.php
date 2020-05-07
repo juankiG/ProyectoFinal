@@ -191,6 +191,78 @@ class Record{
     }
 
 }
+class Mensaje{
+    private $id;
+    private $idUsuario;
+    private $mensaje;
+    private $fecha;
+    public function __construct($id,$idUsuario,$mensaje,$fecha)
+    {
+        $this->id=$id;
+        $this->idUsuario=$idUsuario;
+        $this->mensaje=$mensaje;
+        $this->fecha=$fecha;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getMensaje()
+    {
+        return $this->mensaje;
+    }
+
+    /**
+     * @param mixed $mensaje
+     */
+    public function setMensaje($mensaje)
+    {
+        $this->mensaje = $mensaje;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * @param mixed $fecha
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    }
+
+}
 
 
 
