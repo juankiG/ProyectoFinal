@@ -70,7 +70,7 @@ class DAO
             return self::crearUsuarioDesdeRs($rs);
         } else {
 
-            return null;
+            redireccionar("../user/sesion-inicio.php?invUsr=y");
         }
     }
 
@@ -135,6 +135,17 @@ class DAO
 
     }
 
+    public static function usuarioObtenerIdPorEmail(string $email)
+    {
+        $rs = self::ejecutarConsulta("SELECT id FROM usuarios WHERE email=?", [$email]);
+        if($rs){
+            return $rs[0]['id'];
+        }else{
+            return 0;
+        }
+
+    }
+
     public static function usuarioObtenerRecord($idUsuario, $idJuego)
     {
         $rs = self::ejecutarConsulta("SELECT recordUsuario FROM recordusuario WHERE idUsuario=? AND idJuego=?", [$idUsuario, $idJuego]);
@@ -170,6 +181,15 @@ class DAO
     }
     public static function clienteAgregarBD($nombre, $nombreUsuario, $contrasenna,$email): void
     {
+        $usuarioExiste = self::usuarioObtenerIdPorNombreUsuario($nombreUsuario);
+        if($usuarioExiste){
+            redireccionar("../user/registrarUsuario.php?errUs=t");
+        }
+        $usuarioExiste = self::usuarioObtenerIdPorEmail($email);
+        if($usuarioExiste){
+            redireccionar("../user/registrarUsuario.php?errEm=t");
+        }
+
         self::ejecutarActualizacion(
             "INSERT INTO `usuarios`( `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`) VALUES (?,?,?,?,?);",[$nombre, $email, $contrasenna,0,$nombreUsuario]
         );
@@ -224,14 +244,16 @@ class DAO
 
     public static function usuarioSolicitudesPendientes(int $id)
     {
-        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND estadoSolicitud IS NULL", [$id]);
+        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=2", [$id]);
 
         return $rs;
     }
 
     public static function usuarioSolicitudesAceptadas(int $id)
     {
-        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=1", [$id]);
+        $rs = self::ejecutarConsulta
+        ("SELECT * FROM solicitudesAmistad WHERE (idUsuarioSolicitado=? 
+                OR idUsuarioEnviador=?) AND estadoSolicitud=1", [$id, $id]);
 
         return $rs;
     }
@@ -246,8 +268,11 @@ class DAO
     public static function usuarioEliminarSolicitud(int $idReceptor, int $idEnviador)
     {
         $rs = self::ejecutarConsulta
-        ("DELETE FROM solicitudes WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("DELETE FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idReceptor, $idEnviador]);
+        $rs = self::ejecutarConsulta
+        ("DELETE FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+            [$idEnviador, $idReceptor]);
 
     }
 
@@ -257,10 +282,52 @@ class DAO
             [$idReceptor, $idEnviador]);
     }
 
+    public static function usuarioEnviarSolicitud(int $idReceptor, int $idEnviador){
+        $rs = self::ejecutarConsulta
+        ("INSERT INTO `solicitudesamistad`(`idUsuarioSolicitado`, `idUsuarioEnviador`, `estadoSolicitud`) VALUES (?,?,?)",
+            [$idReceptor, $idEnviador, 2]);
+    }
+
     public static function usuarioRechazarSolicitud(int $idReceptor, int $idEnviador){
         $rs = self::ejecutarConsulta
         ("UPDATE solicitudesAmistad SET estadoSolicitud=0 WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idReceptor, $idEnviador]);
+    }
+
+    public static function comprobarRelacionAmistad(int $idUsuarioLoggeado, int $idUsuarioVisitado){
+
+        $rsUsuarioLoggeado = self::ejecutarConsulta
+        ("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+            [$idUsuarioLoggeado, $idUsuarioVisitado]);
+        $rsUsuarioVisitado = self::ejecutarConsulta
+        ("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+            [$idUsuarioVisitado, $idUsuarioLoggeado]);
+
+        if(!$rsUsuarioLoggeado){
+            if(!$rsUsuarioVisitado){
+                return 'agregar';
+            }else if($rsUsuarioVisitado[0]['estadoSolicitud']==1){
+                return 'amigos';
+            }else if($rsUsuarioVisitado[0]['estadoSolicitud']==0){
+                return 'rechazadaPorUsuarioReceptor';
+            }else if($rsUsuarioVisitado[0]['estadoSolicitud']==2){
+                return 'pendientePorUsuarioReceptor';
+            }
+
+        }
+
+        if(!$rsUsuarioVisitado){
+            if(!$rsUsuarioLoggeado){
+                return 'agregar';
+            }else if($rsUsuarioLoggeado[0]['estadoSolicitud']==1){
+                return 'amigos';
+            }else if($rsUsuarioLoggeado[0]['estadoSolicitud']==0){
+                return 'rechazadaPorUsuarioSesion';
+            }else if($rsUsuarioLoggeado[0]['estadoSolicitud']==2){
+                return 'pendientePorUsuarioSesion';
+            }
+
+        }
     }
 
 

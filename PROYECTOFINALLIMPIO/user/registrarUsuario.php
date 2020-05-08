@@ -1,9 +1,5 @@
 
-<?php
-if (isset($_REQUEST["incorrecto"])) {
-echo "<p>no se ha podido enviar el correo de activacion.</p>";
-}
-?>
+
 <html>
 	<head>
 		<title>Registro</title>
@@ -27,7 +23,19 @@ echo "<p>no se ha podido enviar el correo de activacion.</p>";
 					<div class="panel-body" >
 						
 						<form id="signupform" class="form-horizontal" role="form" action="gestionar_registro.php" method="POST" autocomplete="off">
-							
+                            <?php
+                            if (isset($_REQUEST["incorrecto"])) {
+                                echo "<p>no se ha podido enviar el correo de activacion.</p>";
+                            }
+
+                            if (isset($_REQUEST["errUs"])) {
+                                echo "<p>Este nombre de usuario ya se encuentra en uso, por favor elija otro.</p>";
+                            }
+
+                            if (isset($_REQUEST["errEm"])) {
+                                echo "<p>Este email ya se encuentra en uso, por favor elija otro.</p>";
+                            }
+                            ?>
 							<div id="signupalert" style="display:none" class="alert alert-danger">
 								<p>Error:</p>
 								<span></span>

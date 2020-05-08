@@ -19,17 +19,7 @@ if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToke
 </head>
 
 <body>
-<?php
-if (isset($_REQUEST["incorrecto"])) {
-    echo "<p>Usuario o contraseña incorrectos.</p>";
-}
-if (isset($_REQUEST["noToken"])) {
-    echo "<p>Debes Activar la Cuenta .</p>";
-}
-if (isset($_REQUEST["sesionCerrada"])) {
-    echo "<p>Ha salido correctamente. Su sesión está ahora cerrada.</p>";
-}
-?>
+
 
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -44,6 +34,20 @@ if (isset($_REQUEST["sesionCerrada"])) {
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
                 <form id="loginform" class="form-horizontal" role="form" action="usuarioPantallaPrincipal.php" method="POST" autocomplete="off">
+                    <?php
+                    if (isset($_REQUEST["incorrecto"])) {
+                        echo "<p>Usuario o contraseña incorrectos.</p>";
+                    }
+                    if (isset($_REQUEST["noToken"])) {
+                        echo "<p>Debes Activar la Cuenta .</p>";
+                    }
+                    if (isset($_REQUEST["sesionCerrada"])) {
+                        echo "<p>Ha salido correctamente. Su sesión está ahora cerrada.</p>";
+                    }
+                    if(isset($_REQUEST['invUsr'])){
+                        echo "<p>Usuario y/o contraseña incorrectos.</p>";
+                    }
+                    ?>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
