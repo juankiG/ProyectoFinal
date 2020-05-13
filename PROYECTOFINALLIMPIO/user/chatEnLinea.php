@@ -35,9 +35,10 @@
 
         </div>
     </div>
-
+    <form action="usuarioPantallaPrincipal.php" method="post">
         <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
         <button type="submit" name="Enviar" value="Enviar"></button>
+    </form>
     
 </div>
 </body>

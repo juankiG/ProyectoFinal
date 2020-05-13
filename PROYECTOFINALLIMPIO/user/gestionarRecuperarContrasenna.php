@@ -18,7 +18,7 @@ if(isset($cliente)){
         redireccionar("sesion-inicio.php");
     }else{
         $nombre=$cliente->getNombre();
-        $url="recuperarContrasennaFormulario.php?id=".$cliente->getId()."";
+        $url="http://localhost/php/ProyectoFP/PROYECTOFINALLIMPIO/user/recuperarContrasennaFormulario.php?id=".$cliente->getId()."";
         $asunto = 'Recuperar Contraseña - Sistema de Usuarios';
         $cuerpo=  "Estimado $nombre <br /><br />Para continuar con la recuperacion de la contraseña haz click en el siguiente enlace <a href='$url'>Recuperar Contraseña</a>";
 

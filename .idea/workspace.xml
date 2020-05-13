@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6c80b07e-0b02-4ab5-bd5c-b2b940579b0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/ActivarCuenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/ActivarCuenta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/juegos/pongGame/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/juegos/pongGame/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/chatEnLinea.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/chatEnLinea.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaFormulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaFormulario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/registrarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/registrarUsuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/sesion-inicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/sesion-inicio.php" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +48,18 @@
       <recent name="D:\xampp\htdocs\ProyectoFinal\PROYECTOFINALLIMPIO\user" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -69,11 +78,23 @@
       <workItem from="1589208144761" duration="368000" />
       <workItem from="1589208728251" duration="6911000" />
       <workItem from="1589286141309" duration="33731000" />
+      <workItem from="1589384343016" duration="479000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="263" y="22" key="#CLI_Interpreters" timestamp="1587573369439">
