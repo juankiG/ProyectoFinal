@@ -355,4 +355,60 @@ class DAO
         return date('g:i a',strtotime($fecha));
                 }
 
+
+   /* CONVERSACIONES Y MENSAJES */
+
+    public static function obtenerConversacionesUsuario($id){
+
+        $rs = self::ejecutarConsulta("  SELECT * FROM conversaciones WHERE idUsuarioUno=? OR idUsuarioDos=?", [$id, $id]);
+
+        return $rs;
+
+    }
+
+    public static function conversacionObtenerMensajes($idConversacion){
+
+        $rs = self::ejecutarConsulta("  SELECT * FROM mensajes WHERE idConversacion=? ORDER BY fechaMensaje DESC", [$idConversacion]);
+
+        return $rs;
+
+    }
+
+    public static function conversacionNuevoMensaje($idConversacion, $textoMensaje, $fechaMensaje){
+
+        $rs = self::ejecutarConsulta
+        ("  INSERT INTO mensajes(idConversacion,
+                                      idAutorMensaje,
+                                      textoMensaje,
+                                      fechaMensaje) 
+                 VALUES (?,?,?,?)", [$idConversacion, $_SESSION['id'], $textoMensaje, $fechaMensaje]);
+
+        return $rs;
+
+    }
+
+    public static function conversacionVerOCrear($idUsuarioConversacion){
+
+        $rsUno = self::ejecutarConsulta("SELECT * FROM conversaciones WHERE idUsuarioUno=? AND idUsuarioDos=?",
+            [$_SESSION['id'], $idUsuarioConversacion]);
+
+        if($rsUno){
+
+            return $rsUno[0]['idConversacion'];
+        }else{
+            $rsDos = self::ejecutarConsulta("SELECT * FROM conversaciones WHERE idUsuarioUno=? AND idUsuarioDos=?",
+                [$idUsuarioConversacion, $_SESSION['id']]);
+            if($rsDos){
+                return $rsDos[0]['idConversacion'];
+
+            }else{
+                self::ejecutarConsulta("INSERT INTO conversaciones(idUsuarioUno, idUsuarioDos) VALUES (?,?)",
+                    [$_SESSION['id'], $idUsuarioConversacion]);
+                $rsNuevaConversacion = self::ejecutarConsulta("SELECT * FROM conversaciones WHERE idUsuarioUno=? AND idUsuarioDos=?",
+                    [$_SESSION['id'], $idUsuarioConversacion]);
+                return $rsNuevaConversacion[0]['idConversacion'];
+            }
+        }
+
+    }
 }
