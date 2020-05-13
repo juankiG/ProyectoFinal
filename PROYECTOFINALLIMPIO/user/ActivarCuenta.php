@@ -12,24 +12,21 @@ if(isset($_REQUEST["id"]))
 $cliente= DAO::usuarioObtenerPorId($idUsuario);
 generarToken($cliente->getNombreUsuario());
 ?>
+
 <html>
 <head>
     <title>Registro</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-    <script src="js/bootstrap.min.js" ></script>
-
+    <link rel="stylesheet" href="css/estilo_entre_pantallas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
-
 <body>
-<div class="container">
-    <div class="jumbotron">
-
-        <h1>Felicidades <?php echo $cliente->getNombre(); ?> por activar tu ceunta en MINIGAMES</h1>
-
-        <br />
-        <p><a class="btn btn-primary btn-lg" href="sesion-inicio.php" role="button">Iniciar Sesi&oacute;n</a></p>
+<div class="info">
+    <div class="logo">
+        <a href=""><img src="IMG/logo.webp" alt=""></a>
     </div>
+    <p style="font-size: 20px">¡! Felicidades <?php echo $cliente->getNombre(); ?> por activar tu cuenta en MINIJUEGOS !¡</p>
+    <button><a href="sesion-inicio.php">Iniciar sesión</a></button>
 </div>
+
 </body>
 </html>

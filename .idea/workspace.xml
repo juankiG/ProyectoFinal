@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="11758e1f-08ce-4b5c-b000-297add1aae32" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DaoYClases/clases.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DaoYClases/dao.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DaoYClases/sesiones.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gestionar_registro.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/juego-detalle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sesion-cerrar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProyectoFP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoFP.iml" afterDir="false" />
+    <list default="true" id="6c80b07e-0b02-4ab5-bd5c-b2b940579b0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/Juego.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/dao.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/administrador/utilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/DaoYClases/utilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verimagen.php" beforeDir="false" afterPath="$PROJECT_DIR$/verimagen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/ActivarCuenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/ActivarCuenta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaFormulario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaFormulario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/recuperarContrasennaUsuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/registrarUsuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/registrarUsuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/sesion-inicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/sesion-inicio.php" afterDir="false" />
     </list>
-=======
-    <list default="true" id="11758e1f-08ce-4b5c-b000-297add1aae32" name="Default Changelist" comment="" />
->>>>>>> PONG
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,102 +21,96 @@
       <executable />
     </execution>
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1Z8CkH00evhCNloNF2uTL7sCD07" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1au5VQVZQnebkU74huY0GDOJZp8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\php\ProyectoFP" />
-      <recent name="E:\xampp\htdocs\php\ProyectoFP\DaoYClases" />
-      <recent name="E:\xampp\htdocs\php\ProyectoFP\administrador" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\php\ProyectoFP" />
-      <recent name="E:\xampp\htdocs\php\ProyectoFP\administrador" />
+      <recent name="D:\xampp\htdocs\ProyectoFinal\PROYECTOFINALLIMPIO\user" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="11758e1f-08ce-4b5c-b000-297add1aae32" name="Default Changelist" comment="" />
-      <created>1584211859977</created>
+      <changelist id="6c80b07e-0b02-4ab5-bd5c-b2b940579b0f" name="Default Changelist" comment="" />
+      <created>1587572661612</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1584211859977</updated>
-      <workItem from="1584211861158" duration="2151000" />
-      <workItem from="1584268287225" duration="6112000" />
-      <workItem from="1585395277155" duration="6989000" />
-<<<<<<< HEAD
-      <workItem from="1586949828733" duration="9812000" />
-=======
-      <workItem from="1585501571303" duration="51000" />
->>>>>>> PONG
+      <updated>1587572661612</updated>
+      <workItem from="1587572665062" duration="470000" />
+      <workItem from="1587573158508" duration="2409000" />
+      <workItem from="1587576441048" duration="1733000" />
+      <workItem from="1587654793755" duration="3682000" />
+      <workItem from="1588779073904" duration="5644000" />
+      <workItem from="1589208144761" duration="368000" />
+      <workItem from="1589208728251" duration="6911000" />
+      <workItem from="1589286141309" duration="33731000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="WindowStateProjectService">
+    <state x="263" y="22" key="#CLI_Interpreters" timestamp="1587573369439">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="22" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1587573369439" />
+    <state x="275" y="25" key="#Notifications" timestamp="1589210633475">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="25" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1589210633475" />
+    <state x="406" y="0" key="#PHP" timestamp="1587573374550">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="406" y="0" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1587573374550" />
+    <state x="537" y="125" key="FileChooserDialogImpl" timestamp="1589208402450">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="537" y="125" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589208402450" />
+    <state x="186" y="9" key="SettingsEditor" timestamp="1587573119496">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587573119496" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588779111161">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588779111161" />
+    <state x="405" y="167" key="git4idea.merge.GitPullDialog" timestamp="1589209429668">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="167" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1589209429668" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1589297006019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589297006019" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589311003087">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589311003087" />
   </component>
 </project>
