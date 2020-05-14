@@ -6,11 +6,18 @@ $fechaActual = date('m/d/Y H:i:s', time());
 
 $fechaActual = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $fechaActual)));
 
-if($_REQUEST['usrId']!=$_SESSION['id']){
-    redireccionar("../_com/recursoNoDisponible.php");
+
+
+if(isset($_REQUEST['idC'])){
+    $_SESSION['idC']=$_REQUEST['idC'];
 }
 
-$rsMensajes = DAO::conversacionObtenerMensajes($_REQUEST['idC']);
+$rsMensajes = DAO::conversacionObtenerMensajes($_SESSION['idC']);
+
+$noMensajes="";
+if(!$rsMensajes){
+    $noMensajes="No hay mensajes aún";
+}
 
 ?>
 
@@ -41,43 +48,46 @@ $rsMensajes = DAO::conversacionObtenerMensajes($_REQUEST['idC']);
         }
     </style>
     <title>Document</title>
+    <script type="text/javascript">
+        function ajax() {
+            var usrId= document.getElementById('usrId').value;
+            var idc= document.getElementById('idC').value;
+
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    document.getElementById('chat').innerHTML = req.responseText;
+
+                }
+            }
+            req.open('GET', "chatConversacion.php?idC="+idc+"&usrId="+usrId, true);
+            req.send();
+        }
+
+        setInterval(function () {
+            ajax();
+        }, 1000);
+    </script>
 </head>
-<body>
-<div class="scrolleable">
 
-<?php
-if(!$rsMensajes){
-    echo("<p> No hay mensajes aún </p>");
-}
+<body onload="ajax()" >
+<div id="contenedor">
+    <p><?php echo $noMensajes?></p>
+    <div id="caja-chat">
+        <div class="scrolleable" id="chat">
 
-foreach ($rsMensajes as $mensaje) {
+        </div>
+    </div>
+    <form action="nuevoMensajeGestionar.php">
+        <textarea name="mensaje" class="textbox" placeholder="Escribe un nuevo mensaje"></textarea>
+        <!-- <input type="text" id="textboxid" placeholder="Escribe un mensaje" name="mensaje"> -->
+        <input type="hidden" name="fecha" value="<?=$fechaActual?>">
+        <input type="hidden" name="idConversacion" id="idC" value="<?=$_REQUEST['idC']?>">
+        <input type="hidden" name="usrId" id="usrId" value="<?=$_REQUEST['usrId']?>">
+        <input type="submit" value="Enviar">
+    </form>
 
-    $idUsuarioConversacion = $mensaje['idAutorMensaje'];
-
-    $usuario = DAO::usuarioObtenerPorId($idUsuarioConversacion);
-?>
-    <table>
-        <tr>
-            <td><?=$usuario->getNombreUsuario()?></td>
-        </tr>
-        <tr>
-            <td><?=$mensaje['textoMensaje']?></td>
-        </tr>
-        <tr>
-            <td><?=$mensaje['fechaMensaje']?></td>
-        </tr>
-    </table>
-    <br>
-<?php
-}
-?>
 </div>
-<form action="nuevoMensajeGestionar.php">
-    <textarea name="mensaje" class="textbox" placeholder="Escribe un nuevo mensaje"></textarea>
-   <!-- <input type="text" id="textboxid" placeholder="Escribe un mensaje" name="mensaje"> -->
-    <input type="hidden" name="fecha" value="<?=$fechaActual?>">
-    <input type="hidden" name="idConversacion" value="<?=$_REQUEST['idC']?>">
-    <input type="submit" value="Enviar">
-</form>
+
 </body>
 </html>
