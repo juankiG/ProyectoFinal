@@ -27,7 +27,7 @@
         }, 1000);
     </script>
 </head>
-<body onload="ajax()" >
+<body onload="ajax()">
 
 <div id="contenedor">
     <div id="caja-chat">
@@ -35,10 +35,11 @@
 
         </div>
     </div>
-
-        <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
-        <button type="submit" name="Enviar" value="Enviar"></button>
-    
+    <form action="" method="get">
+        <input type="hidden" value="<? echo $_SESSION['id']?>">
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+        <button    type="submit" name="Enviar" value="Enviar">Enviar </button>
+    </form>
 </div>
 </body>
 </html>
