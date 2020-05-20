@@ -17,9 +17,9 @@ DAO::clienteAgregarBD($nombre,$usuario,$contrasenna,$email);
 
 $cliente=DAO::usuarioObtenerPorUsuarioYContrasenna($usuario,$contrasenna);
 $clienteid=$cliente->getId();
-$url="ActivarCuenta.php?id=".$clienteid."";
+$url="http://localhost/php/proyectoFP/PROYECTOFINALLIMPIO/user/ActivarCuenta.php?id=".$clienteid."";
 $asunto = 'Activar Cuenta - Sistema de Usuarios';
-$cuerpo=  "Estimado $nombre: <br /><br />Para continuar con el proceso de registro, es indispensable que haga click en el siguiente enlace <a href='$url'>Activar Cuenta</a>";
+$cuerpo="Estimado $nombre: <br /><br />Para continuar con el proceso de registro, es indispensable que haga click en el siguiente enlace <a href='$url'>Activar Cuenta</a>";
 
 enviarEmail($email, $nombre, $asunto, $cuerpo);
 ?>

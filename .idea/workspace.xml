@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c80b07e-0b02-4ab5-bd5c-b2b940579b0f" name="Default Changelist" comment="">
+    <list default="true" id="1604d4a0-66b9-461c-924b-814440f8bd28" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/juegos/pongGame/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/juegos/pongGame/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/chatEnLinea.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/chatEnLinea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionarRecuperarContrasenna.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/_com/emailFuncion.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/_com/emailFuncion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,31 +39,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\ProyectoFinal\PROYECTOFINALLIMPIO\user" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6c80b07e-0b02-4ab5-bd5c-b2b940579b0f" name="Default Changelist" comment="" />
+      <changelist id="1604d4a0-66b9-461c-924b-814440f8bd28" name="Default Changelist" comment="" />
       <created>1587572661612</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -79,6 +65,7 @@
       <workItem from="1589208728251" duration="6911000" />
       <workItem from="1589286141309" duration="33731000" />
       <workItem from="1589384343016" duration="479000" />
+      <workItem from="1589388746288" duration="2240000" />
     </task>
     <servers />
   </component>
@@ -90,7 +77,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -113,10 +102,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="125" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589208402450" />
-    <state x="186" y="9" key="SettingsEditor" timestamp="1587573119496">
+    <state x="186" y="9" key="SettingsEditor" timestamp="1589386632113">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587573119496" />
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589386632113" />
     <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588779111161">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
