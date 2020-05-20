@@ -95,7 +95,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             this.canvas.width = 1920;
             this.canvas.height =1080;
 
-            this.canvas.style.width = (this.canvas.width / 2) + 'px';
+            this.canvas.style.width = (this.canvas.width / 2.5) + 'px';
             this.canvas.style.height = (this.canvas.height / 2.5) + 'px';
 
             this.player = Paddle.new.call(this, 'left');
