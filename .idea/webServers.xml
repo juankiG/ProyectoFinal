@@ -2,7 +2,11 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
+<<<<<<< HEAD
       <webServer id="1c3f9d5a-88ee-4d8c-ad3f-c22be8f792d3" name="local" url="http://localhost/php/proyectoFP/">
+=======
+      <webServer id="385093ff-b124-4d5a-a22d-c3ca0ab3559f" name="local" url="http://localhost/php/proyectoFP">
+>>>>>>> master
         <fileTransfer port="0" accessType="LOCAL" />
       </webServer>
     </option>

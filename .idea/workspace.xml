@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1604d4a0-66b9-461c-924b-814440f8bd28" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ProyectoFP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoFP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/_com/emailFuncion.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/_com/emailFuncion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" beforeDir="false" afterPath="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user/gestionar_registro.php" afterDir="false" />
+>>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +23,25 @@
       <executable />
     </execution>
   </component>
+<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1brMFFR3LSJ9zKsn3PanifHPnvH" />
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1au5VQVZQnebkU74huY0GDOJZp8" />
+>>>>>>> master
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,23 +50,53 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
+=======
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PROYECTOFINALLIMPIO/user" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\ProyectoFinal\PROYECTOFINALLIMPIO\user" />
+    </key>
+  </component>
+>>>>>>> master
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1604d4a0-66b9-461c-924b-814440f8bd28" name="Default Changelist" comment="" />
+<<<<<<< HEAD
       <created>1589385654298</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589385654298</updated>
       <workItem from="1589385656847" duration="150000" />
       <workItem from="1589385816334" duration="353000" />
+=======
+      <created>1587572661612</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587572661612</updated>
+      <workItem from="1587572665062" duration="470000" />
+      <workItem from="1587573158508" duration="2409000" />
+      <workItem from="1587576441048" duration="1733000" />
+      <workItem from="1587654793755" duration="3682000" />
+      <workItem from="1588779073904" duration="5644000" />
+      <workItem from="1589208144761" duration="368000" />
+      <workItem from="1589208728251" duration="6911000" />
+      <workItem from="1589286141309" duration="33731000" />
+      <workItem from="1589384343016" duration="479000" />
+      <workItem from="1589388746288" duration="2240000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
@@ -65,5 +116,43 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="405" y="167" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1589386271460" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="263" y="22" key="#CLI_Interpreters" timestamp="1587573369439">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="22" key="#CLI_Interpreters/0.0.1366.728@0.0.1366.728" timestamp="1587573369439" />
+    <state x="275" y="25" key="#Notifications" timestamp="1589210633475">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="25" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1589210633475" />
+    <state x="406" y="0" key="#PHP" timestamp="1587573374550">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="406" y="0" key="#PHP/0.0.1366.728@0.0.1366.728" timestamp="1587573374550" />
+    <state x="537" y="125" key="FileChooserDialogImpl" timestamp="1589208402450">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="537" y="125" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589208402450" />
+    <state x="186" y="9" key="SettingsEditor" timestamp="1589386632113">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589386632113" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588779111161">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588779111161" />
+    <state x="405" y="167" key="git4idea.merge.GitPullDialog" timestamp="1589209429668">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="167" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1589209429668" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1589297006019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589297006019" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589311003087">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589311003087" />
   </component>
 </project>

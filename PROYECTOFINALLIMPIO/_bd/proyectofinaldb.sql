@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-05-2020 a las 14:25:31
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.0
+-- Tiempo de generación: 14-05-2020 a las 11:53:24
+-- Versión del servidor: 10.4.10-MariaDB
+-- Versión de PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyectofinaldb`
 --
-CREATE DATABASE IF NOT EXISTS `proyectofinaldb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `proyectofinaldb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
 USE `proyectofinaldb`;
 
 -- --------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE `chat` (
   `id` int(11) NOT NULL,
   `idusuario` int(25) NOT NULL,
   `mensaje` varchar(200) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,6 +48,25 @@ INSERT INTO `chat` (`id`, `idusuario`, `mensaje`, `fecha`) VALUES
 (13, 3, 'HOla Nieves', '2020-05-07 12:19:47'),
 (14, 3, 'que tal\r\n', '2020-05-07 12:21:54'),
 (15, 3, 'hola\r\n', '2020-05-07 12:22:03');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `conversaciones`
+--
+
+CREATE TABLE `conversaciones` (
+  `idConversacion` int(11) NOT NULL,
+  `idUsuarioUno` int(11) NOT NULL,
+  `idUsuarioDos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `conversaciones`
+--
+
+INSERT INTO `conversaciones` (`idConversacion`, `idUsuarioUno`, `idUsuarioDos`) VALUES
+(25, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -92,6 +111,27 @@ CREATE TABLE `juegos` (
 
 INSERT INTO `juegos` (`id`, `nombre`, `descripcion`, `linkImagen`, `imagen`) VALUES
 (31, 'Pong', 'Pong', '../contenido/recursos/pong.jpg', 0x696e6465782e706870);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE `mensajes` (
+  `idConversacion` int(11) NOT NULL,
+  `idMensaje` int(11) NOT NULL,
+  `idAutorMensaje` int(11) NOT NULL,
+  `textoMensaje` varchar(300) NOT NULL,
+  `fechaMensaje` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`idConversacion`, `idMensaje`, `idAutorMensaje`, `textoMensaje`, `fechaMensaje`) VALUES
+(25, 28, 2, 'Hola\r\n', '2020-05-13 22:26:21');
 
 -- --------------------------------------------------------
 
@@ -154,7 +194,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasenna`, `tipoUsuario`, `nombreUsuario`, `codigoCookie`, `token`) VALUES
-(2, 'fran', 'fran@gmail.com', '1234', 1, 'basedfran', 'sa2GTAWZ5krdIMAnYkEB1HEUgW084U6p', ''),
+(2, 'fran', 'fran@gmail.com', '1234', 1, 'basedfran', 'OqTb9abwYt8iZ3jPeftsF7IZu8A8FdRV', 'qwewrfsd234234sfdfsd'),
 (3, 'juancarlos', 'ciclosuperiorjuanki@gmail.com', 'juanki', 1, 'juanki', NULL, 'iuhefifjn'),
 (4, 'ivan', 'ivan@gmail.com', '1234', 0, 'ivanA', NULL, 'mcvvm '),
 (5, 'pepe', 'j@h.com', '1234', 0, 'pee', NULL, ''),
@@ -174,6 +214,12 @@ ALTER TABLE `chat`
   ADD KEY `idusuario` (`idusuario`);
 
 --
+-- Indices de la tabla `conversaciones`
+--
+ALTER TABLE `conversaciones`
+  ADD PRIMARY KEY (`idConversacion`);
+
+--
 -- Indices de la tabla `emailadmin`
 --
 ALTER TABLE `emailadmin`
@@ -184,6 +230,14 @@ ALTER TABLE `emailadmin`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`idMensaje`,`idConversacion`),
+  ADD KEY `idAutorMensaje` (`idAutorMensaje`),
+  ADD KEY `mensajes_ibfk_1` (`idConversacion`);
 
 --
 -- Indices de la tabla `recordusuario`
@@ -216,10 +270,22 @@ ALTER TABLE `chat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT de la tabla `conversaciones`
+--
+ALTER TABLE `conversaciones`
+  MODIFY `idConversacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT de la tabla `juegos`
 --
 ALTER TABLE `juegos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -236,6 +302,13 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `chat`
   ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`id`);
+
+--
+-- Filtros para la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD CONSTRAINT `idAutorMensaje` FOREIGN KEY (`idAutorMensaje`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `mensajes_ibfk_1` FOREIGN KEY (`idConversacion`) REFERENCES `conversaciones` (`idConversacion`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `recordusuario`
