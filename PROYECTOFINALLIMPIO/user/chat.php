@@ -1,5 +1,5 @@
 <?php
- require_once "../_com/comunes-app.php";
+ require_once "../_com/requireonces-comunes.php";
 
 ?>
 <div id="datos-chat">

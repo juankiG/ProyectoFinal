@@ -28,6 +28,7 @@ if($usuarioId == 0){
                 <a href="../user/usuarioVerAmigos.php">Ver amigos (<?=count($solicitudesAceptadas)?>)</a><br>
                 <a href="../user/usuarioVerSolicitudes.php">Ver solicitudes (<?=count($solicitudesPendientes)?>)</a><br>
                 <a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas (<?=count($solicitudesRechazadas)?>)</a><br>
+                <a href="../user/usuarioVerConversaciones.php">Ver mensajes</a>
                 <br><a href="../user/usuarioPantallaPrincipal.php">Volver a la página de inicio</a>
 
         </body>
@@ -101,7 +102,9 @@ else{
             break;
     }
     ?>
-    <br><a href="../user/usuarioPantallaPrincipal.php">Volver a la página de inicio</a>
+
+    <button><a href="nuevoMensajePerfilGestionar.php?idUsr=<?=$usuario->getId()?>">Enviar mensaje</a></button>
+    <br><br><a href="../user/usuarioPantallaPrincipal.php">Volver a la página de inicio</a>
     </body>
     </html>
     <?php
