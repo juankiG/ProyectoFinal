@@ -1,1 +1,411 @@
-juankar
+body {
+    background-image: url("../IMG/sinMarcaDeAgua+Oscuro.jpg");
+    background-size: cover;
+    height: 87.5%;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+html {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: rgba(36, 40, 59, 1);
+    flex-wrap: wrap;
+    align-items: center;
+    height: 80px;
+    border-bottom: 2px solid darkorange;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: 0;
+}
+
+.logo a {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.logo img {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.buscar {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscar form {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.buscar form input[type="text"] {
+    width: 78%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid darkorange;
+    box-shadow: 0 0 10px 0 rgba(255, 88, 96, .5);
+}
+
+.buscar form input[type="submit"] {
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-image: linear-gradient(90deg, #ffa22f 0%, #fb900b 100%);
+    color: white;
+    box-shadow: 0 0 20px 0 rgba(255, 88, 96, .5);
+    opacity: .85;
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.buscar form input[type="submit"]:hover {
+    background-image: linear-gradient(90deg, #ffba24 0%, #ffaa0e 100%);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+
+}
+
+.menu ul {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    transition: all .25s ease;
+}
+
+.menu ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+
+}
+
+.menu ul li a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li:hover {
+    border-bottom: 1px solid darkorange;
+    background-color: rgb(15, 15, 31);
+}
+
+.perfil:hover .submenu {
+    display: flex;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 78px;
+    right: 0;
+    width: 12%;
+    background-color: rgba(36, 40, 59, 1);
+}
+
+.submenu ul {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.submenu ul li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transition: all .25s ease;
+    padding-top: 5px;
+
+}
+
+.submenu ul li a {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+
+}
+
+.ver-perfil-form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+
+}
+
+.ver-perfil-form input {
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+.ver-perfil-form input:hover {
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+#contenido {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+}
+.juegos{
+    flex-wrap: wrap;
+    display: flex;
+    width: 95%;
+    margin: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    justify-content: space-between;
+}
+.juegos::-webkit-scrollbar{
+    display: none;
+}
+#juego{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(36, 40, 59, 0.7);
+    height: 35%;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+#juego a{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 30%;
+}
+#juego .descripcion-juego{
+    display: flex;
+    width: 65%;
+    flex-wrap: wrap;
+}
+#juego .descripcion-juego h2{
+    width: 100%;
+    border-bottom: 2px solid darkorange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+    color: white;
+}
+#juego .descripcion-juego p{
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .6px;
+    color: white;
+}
+#juego a img{
+    display: flex;width: 100%;
+
+}
+#juego a img:hover {
+    box-shadow: 0 0 30px 0 rgba(255, 133, 12, 0.5);
+}
+
+.chat {
+    background-color: rgb(15, 15, 31);
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    height: 100%;
+    padding: 5px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.chat #contenedor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chat #contenedor #caja-chat {
+    display: flex;
+    width: 100%;
+    height: 88%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chat #contenedor #caja-chat #chat {
+    display: flex;
+    width: 95%;
+    height: 93%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+#chat::-webkit-scrollbar{
+
+    display: none;
+}
+
+#datos-chat {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+table {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+tbody {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+tr {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+    background-color: rgba(36, 40, 59, 1);
+
+    border-radius: 10px;
+}
+
+td:first-child {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    font-size: 12px;
+    color: #eea411;
+    margin-bottom: 5px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+    margin-left: 7px;
+}
+td:last-child {
+    display: flex;
+    width: 15%;
+    justify-content: right;
+    font-size: 10px;
+    color: darkgray;
+    margin-left: 7px;
+    padding: 3px;
+    font-family: 'Jost', sans-serif;
+}
+td:nth-child(2){
+    font-family: 'Jost', sans-serif;
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    color: white;
+    font-size: 12px;
+    font-weight: lighter;
+    margin-left: 7px;
+    padding: 3px;
+}
+
+.chat #contenedor form {
+    height: 12%;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat #contenedor form textarea{
+    border-radius: 5px;
+    display: flex;
+    height: 70%;
+    width: 80%;
+}
+.chat #contenedor form button{
+    display: flex;
+    width: 18%;
+    align-items: center;
+    height: 70%;
+    border-radius: 10px;
+    background-color: #e87d00;
+    font-family: 'Jost', sans-serif;
+    justify-content: center;
+    border: 0;
+    font-size: 12px;
+    color: white;
+}
