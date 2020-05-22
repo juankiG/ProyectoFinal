@@ -134,6 +134,16 @@ class DAO
         }
 
     }
+    public static function usuarioObtenerPorNombreUsuario(string $nombreUsuario)
+    {
+        $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=?", [$nombreUsuario]);
+        if($rs){
+            return self::crearUsuarioDesdeRs($rs);
+        }else{
+            return null;
+        }
+
+    }
 
     public static function usuarioObtenerIdPorEmail(string $email)
     {

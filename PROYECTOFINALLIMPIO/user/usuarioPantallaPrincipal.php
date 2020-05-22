@@ -29,14 +29,10 @@ if (isset($_REQUEST['Enviar']))
         <a href="usuarioPantallaPrincipal.php"><img src="IMG/logo.webp" alt=""></a>
     </div>
     <div class="buscar">
-
-        <form action="usuarioPerfil.php">
-            <input type="text" name="nombreUsuario" placeholder="Buscar usuario...">
-
-            <input type="submit" value="buscar">
-        </form>
-
-
+    <form action="buscador.php">
+        <input type="text" name="Nombre" placeholder="Buscar...">
+        <input type="submit" value="Buscar">
+    </form>
     </div>
     <div class="menu">
         <ul>
