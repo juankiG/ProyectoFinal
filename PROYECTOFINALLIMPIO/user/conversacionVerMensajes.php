@@ -49,14 +49,9 @@ if (!$rsMensajes) {
     </style>
     <title>Document</title>
     <script type="text/javascript">
-        function scrollAbajo() {
 
-            var objDiv = document.getElementById("chat");
-            objDiv.scrollTop = objDiv.scrollHeight;
-        }
 
         function ajax() {
-            scrollAbajo();
             var usrId = document.getElementById('usrId').value;
             var idc = document.getElementById('idC').value;
 
@@ -70,6 +65,7 @@ if (!$rsMensajes) {
             req.open('GET', "chatConversacion.php?idC=" + idc + "&usrId=" + usrId, true);
             req.send();
         }
+
 
         setInterval(function () {
             ajax();

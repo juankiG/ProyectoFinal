@@ -379,7 +379,7 @@ class DAO
 
     public static function conversacionObtenerMensajes($idConversacion){
 
-        $rs = self::ejecutarConsulta("  SELECT * FROM mensajes WHERE idConversacion=? ORDER BY fechaMensaje ", [$idConversacion]);
+        $rs = self::ejecutarConsulta("  SELECT * FROM mensajes WHERE idConversacion=? ORDER BY fechaMensaje DESC", [$idConversacion]);
 
         return $rs;
 
