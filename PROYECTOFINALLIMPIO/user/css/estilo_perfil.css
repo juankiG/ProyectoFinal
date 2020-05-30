@@ -1,0 +1,737 @@
+body {
+    background-image: url("../IMG/image4.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+html {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: rgba(36, 40, 59, 1);
+    flex-wrap: wrap;
+    align-items: center;
+    height: 10%;
+    border-bottom: 2px solid darkorange;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    height: 89.5%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: 0;
+}
+
+.logo a {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+.logo img {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.buscar {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscar form {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.buscar form input[type="text"] {
+    width: 78%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid darkorange;
+    box-shadow: 0 0 10px 0 rgba(255, 88, 96, .5);
+}
+
+.buscar form input[type="submit"] {
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    background-image: linear-gradient(90deg, #ffa22f 0%, #fb900b 100%);
+    color: white;
+    box-shadow: 0 0 20px 0 rgba(255, 88, 96, .5);
+    opacity: .85;
+    font-size: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.buscar form input[type="submit"]:hover {
+    background-image: linear-gradient(90deg, #ffba24 0%, #ffaa0e 100%);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+
+}
+
+.menu ul {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    transition: all .25s ease;
+}
+
+.menu ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+
+}
+
+.menu ul li a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li:hover {
+    border-bottom: 1px solid darkorange;
+    background-color: rgb(15, 15, 31);
+}
+
+.perfil:hover .submenu {
+    display: flex;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 12%;
+    background-color: rgba(36, 40, 59, 1);
+}
+
+.submenu ul {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.submenu ul li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    transition: all .25s ease;
+    padding-top: 5px;
+
+}
+
+.submenu ul li a {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 10px;
+
+}
+
+.ver-perfil-form {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+
+}
+
+.ver-perfil-form input {
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    justify-content: center;
+    font-size: 10px;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.ver-perfil-form input:hover {
+    cursor: pointer;
+}
+
+#container-perfil {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(15, 15, 31, 1);
+    border-radius: 4px;
+}
+
+.menu-perfil {
+    display: flex;
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(36, 40, 59, 1);
+    justify-content: space-around;
+}
+
+.mostrar-info {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.menu-perfil ul {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.menu-perfil ul li {
+
+    width: 100%;
+}
+
+.menu-perfil ul li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.menu-perfil ul li a:hover {
+    background-color: rgb(15, 15, 31);
+    border-bottom: 1px solid darkorange;
+
+}
+
+.info {
+    display: flex;
+    width: 45%;
+    height: 75%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.info p {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    color: white;
+    align-items: end;
+    justify-content: center;
+    font-size: 11px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.info input[type="text"] {
+    display: flex;
+    height: 12%;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
+    background-color: rgba(36, 40, 59, 1);
+    color: gray;
+    border: 0;
+    font-family: 'Anton', sans-serif;
+}
+
+.info h1 {
+    width: 100%;
+    display: flex;
+    margin: 10px;
+    color: darkorange;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+}
+
+.info form {
+    width: 60%;
+    display: flex;
+    margin-top: 15px;
+    height: 10%;
+    padding: 0;
+}
+
+.info form input[type="submit"] {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(84, 96, 141);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+
+}
+
+.info form input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(67, 79, 122);
+}
+
+.info button {
+    width: 60%;
+    display: flex;
+    height: 10%;
+    border-radius: 10px;
+    background-color: darkorange;
+    border: 0;
+    margin-top: 7px;
+}
+
+.info button a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.info button:hover {
+    background-color: #d57100;
+}
+
+.info .records {
+    display: flex;
+    width: 60%;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: .6px;
+    color: grey;
+    text-align: center;
+    margin: 2px;
+}
+
+.info .records table {
+    width: 100%;
+}
+
+.info .records table th {
+    color: white;
+    border-bottom: 1px solid darkorange;
+    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.info .records table td {
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.amigos, .solicitudes {
+    display: flex;
+    width: 60%;
+    height: 90%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+.amigos .lista, .solicitudes .lista {
+    display: flex;
+    width: 100%;
+    height: 89.5%;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+}
+
+.lista ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lista ul li {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lista::-webkit-scrollbar {
+    display: none;
+}
+
+
+.amigos h1, .solicitudes h1 {
+    width: 100%;
+    height: 10%;
+    margin: 0;
+    display: flex;
+    border-bottom: 1px solid white;
+    color: white;
+    justify-content: center;
+    font-size: 17px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+}
+
+.lista a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgba(36, 40, 59, 1);
+    width: 30%;
+    padding: 5px;
+    margin: 0;
+    height: 10%;
+    margin-top: 5px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: .6px;
+    text-transform: capitalize;
+}
+
+.lista a:hover {
+    color: darkorange;
+}
+
+.lista form {
+    display: flex;
+    width: 30%;
+    height: 10%;
+    margin-top: 5px;
+    margin-bottom: 0;
+    justify-content: end;
+    align-items: center;
+}
+
+.lista form input {
+    display: flex;
+    padding: 7px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: darkorange;
+    border: 0;
+    color: white;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .6px;
+    margin-right: 5px;
+}
+
+.lista form input:hover {
+    cursor: pointer;
+    background-color: #e3a42c;
+}
+
+.mostrar-mensajes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+    height: 100%;
+}
+
+.buscar-mensaje {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 20%;
+    justify-content: center;
+}
+
+.buscar-mensaje p {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscar-mensaje form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+}
+
+.buscar-mensaje form input[type="text"] {
+    width: 75%;
+    height: 100%;
+    border: 0;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    padding: 2px;
+}
+
+.buscar-mensaje form input[type="submit"] {
+    width: 25%;
+    height: 100%;
+    border: 0;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: darkorange;
+    color: white;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: .6px;
+}
+
+.lista-mensajes {
+    width: 100%;
+    display: flex;
+    height: 78.5%;
+    flex-wrap: wrap;
+}
+
+.lista-mensajes p {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+}
+
+.lista-mensajes ul {
+    width: 100%;
+    height: 95%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: scroll;
+
+}
+
+.lista-mensajes ul::-webkit-scrollbar {
+    display: none;
+}
+
+.lista-mensajes ul li {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 3px;
+    border-radius: 4px;
+    border-bottom: 1px solid grey;
+
+}
+
+.lista-mensajes ul li a {
+    text-decoration: none;
+    font-size: 10px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    letter-spacing: .6px;
+    padding: 5px;
+    margin: 2px;
+    color: darkgray;
+}
+
+.lista-mensajes ul li a:hover {
+    color: white;
+}
+
+.lista-mensajes ul li a:first-child {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: white;
+}
+
+.lista-mensajes ul li a:first-child:hover {
+    color: darkorange;
+}
+
+.conversacion {
+    background-color: rgba(36, 40, 59, 1);
+    display: flex;
+    width: 54%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.conversacion #contenedor {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    flex-wrap: wrap;
+}
+
+#contenedor #caja-chat {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+}
+
+#chat {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+#chat::-webkit-scrollbar {
+    display: none;
+}
+
+#contenedor form {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    margin-top: 10px;
+    border-top: 1px solid darkorange;
+}
+
+#datos-chat{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+#datos-chat table{
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap ;
+}
+#datos-chat table tbody{
+    flex-wrap: wrap;
+    width: 100%;
+    padding:0;
+    margin:0;
+}
+#contenedor form textarea{
+    width: 90%;
+    display: flex;
+    border-radius: 8px;
+}
+#contenedor form input[type="submit"]{
+    width: 10%;
+    display: flex;
+    background-color: darkorange;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    height: 50%;
+    border:0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+

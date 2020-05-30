@@ -10,12 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script type="text/javascript">
-        function scrollAbajo()
-        {
+
+        function scrollAbajo() {
 
             var objDiv = document.getElementById("chat");
             objDiv.scrollTop = objDiv.scrollHeight;
         }
+
         function ajax() {
             scrollAbajo();
             var req = new XMLHttpRequest();
@@ -32,11 +33,7 @@
 
         setInterval(function () {
             ajax();
-
-
         }, 1000);
-
-
 
 
     </script>
@@ -46,7 +43,8 @@
 <div id="contenedor">
     <div id="caja-chat">
         <p style="width: 100%;height:10%color: white;margin: 0;display: flex;justify-content: center;align-items: center; font-size: 10px;
-    color: white;font-family: 'Jost', sans-serif;text-transform: uppercase;font-weight: 500;letter-spacing: .6px;">Chat en línea</p>
+    color: white;font-family: 'Jost', sans-serif;text-transform: uppercase;font-weight: 500;letter-spacing: .6px;">Chat
+            en línea</p>
         <div id="chat">
 
         </div>

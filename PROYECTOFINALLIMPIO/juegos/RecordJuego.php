@@ -10,11 +10,20 @@
     <title>Document</title>
 </head>
 <body>
-<p>RECORD DEL <?php echo $juego->getNombre()?></p>
+<p style="display: flex;
+            width:100%;
+            padding: 10px;
+            font-size: 14px;
+            color: #ffb516;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: .8px;
+            margin: 0;
+            justify-content: center;
+            align-items: center;">Record <?php echo $juego->getNombre()?></p>
 <table>
     <tr>
-        <th>usuario</th>
-        <th>record</th>
+        <th>usuario </th>
+        <th>record </th>
 
     </tr>
 

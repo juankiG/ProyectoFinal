@@ -37,7 +37,7 @@ if (isset($_REQUEST['Enviar']))
     <div class="menu">
         <ul>
             <li><a href="usuarioPantallaPrincipal.php">Inicio</a></li>
-            <li class="perfil"><a href="">Perfil</a>
+            <li class="perfil"><a>Perfil</a>
                 <div class="submenu">
                     <ul>
                         <li><a style="padding: 0">

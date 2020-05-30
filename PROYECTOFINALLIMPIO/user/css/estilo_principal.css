@@ -1,7 +1,7 @@
 body {
     background-image: url("../IMG/sinMarcaDeAgua+Oscuro.jpg");
     background-size: cover;
-    height: 87.5%;
+    height: 100%;
     width: 100%;
     flex-wrap: wrap;
     margin: 0;
@@ -17,8 +17,15 @@ nav {
     background-color: rgba(36, 40, 59, 1);
     flex-wrap: wrap;
     align-items: center;
-    height: 80px;
+    height: 10%;
     border-bottom: 2px solid darkorange;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    height: 89.5%;
 }
 
 .logo {
@@ -141,7 +148,7 @@ nav ul li:hover {
 .submenu {
     display: none;
     position: absolute;
-    top: 78px;
+    top: 10%;
     right: 0;
     width: 12%;
     background-color: rgba(36, 40, 59, 1);
@@ -202,12 +209,6 @@ nav ul li:hover {
     cursor: pointer;
 }
 
-main {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    height: 100%;
-}
 
 #contenido {
     display: flex;

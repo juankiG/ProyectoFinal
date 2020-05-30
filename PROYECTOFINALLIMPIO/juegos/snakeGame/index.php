@@ -3,65 +3,66 @@ require_once "../../_com/sesiones.php";
 
 if (!haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("../../user/sesion-inicio.php");
 
-$juegoActual= $_REQUEST['juego'];
+$juegoActual = $_REQUEST['juego'];
 
 
-$juego= DAO::juegoObtenerPorNombre($juegoActual);
+$juego = DAO::juegoObtenerPorNombre($juegoActual);
 
-$recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
+$recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
 ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="snake.css">
 
-    </script>
-    <style>
-
-        .canvas{
-            padding-left: 0;
-            padding-right: 0;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
-        .puntuacion,
-        .recordActual{
-            text-align: center;
-        }
-    </style>
     <title>Juega snake!</title>
 </head>
 <body>
 <script>
-    var id="<?php echo $juego->getId();?>";
-
+    var id = "<?php echo $juego->getId();?>";
 </script>
-<canvas class="canvas" id="canvas" height="300" width="300" style="background-color: #009900"></canvas>
+<nav>
+    <div class="logo">
+        <a href="../../user/usuarioPantallaPrincipal.php"><img src="../../user/IMG/logo.webp" alt=""></a>
+    </div>
 
-<div>
-    <h1 class="puntuacion"></h1>
-    <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
-</div>
-<div class="descripcion">
+</nav>
+<main>
+    <div class="juego">
+        <canvas class="canvas" id="canvas" height="300" width="300"
+                style="background-color: #009900;width: 45%;height: 70%"></canvas>
+    </div>
+    <div class="info">
+        <div id="puntuacion">
+            <h1>Puntuación:</h1>
+            <div class="puntuacion" style="width: 10%"></div>
+            <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
+        </div>
+        <div class="descripcion">
 
-    <?php
-    require_once "../DescripcionJuego.php";
-    ?>
+            <?php
+            require_once "../DescripcionJuego.php";
+            ?>
 
-</div>
+        </div>
 
-<div class="record">
-    <?php
-    require_once "../RecordJuego.php";
-    ?>
-</div>
-<div>
-    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
-</div>
-<script >
+        <div class="record">
+            <?php
+            require_once "../RecordJuego.php";
+            ?>
+        </div>
+        <div class="salir">
+            <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+        </div>
+    </div>
+</main>
+
+
+<script>
     function Fruta() {
         this.x;
         this.y;
@@ -76,6 +77,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             contexto.fillRect(this.x, this.y, escala, escala);
         }
     }
+
     function Bloque() {
         this.x;
         this.y;
@@ -90,6 +92,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             contexto.fillRect(this.x, this.y, escala, escala);
         }
     }
+
     function Snake() {
         this.x = 0;
         this.y = 0;
@@ -178,7 +181,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             for (let i = 0; i < this.cola.length; i++) {
                 if ((this.x === this.cola[i].x &&
                     this.y === this.cola[i].y)) {
-                    document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.total ;
+                    document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
                     console.log("colision");
                     this.total = 0;
                     this.cola = [];
@@ -187,7 +190,6 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         }
 
         this.haChocadoBloque = function (
-
             bloque1x,
             bloque1y,
             bloque2x,
@@ -207,7 +209,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                     this.y === bloque3y) ||
                 (this.x === bloque4x &&
                     this.y === bloque4y)) {
-                document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.total ;
+                document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
                 console.log("colision");
                 this.total = 0;
                 this.cola = [];
@@ -215,20 +217,19 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         }
 
     }
+
     //const canvas = document.querySelector(".canvas");
     const canvas = document.getElementById("canvas");
     const contexto = canvas.getContext("2d");
     const escala = 10;
-    const filas= canvas.height / escala;
+    const filas = canvas.height / escala;
     const columnas = canvas.width / escala;
-
 
 
     var snake;
 
 
-
-    (function setup(){
+    (function setup() {
         snake = new Snake();
         fruta = new Fruta();
         bloque1 = new Bloque();
@@ -244,7 +245,6 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         bloque4.actualizarUbicacion();
 
 
-
         window.setInterval(() => {
             contexto.clearRect(0, 0, canvas.width, canvas.height);
             bloque1.pintar();
@@ -256,7 +256,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             snake.actualizar();
             snake.pintar();
 
-            if(snake.comer(fruta)){
+            if (snake.comer(fruta)) {
                 //contador = contador + 1;
                 fruta.actualizarUbicacion();
                 bloque1.actualizarUbicacion();
@@ -291,8 +291,6 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
     console.log(canvas);
 </script>
-
-
 
 
 </body>

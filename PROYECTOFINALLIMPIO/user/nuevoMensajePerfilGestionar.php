@@ -15,7 +15,7 @@ if(isset($_REQUEST['usrName'])){
 $idConversacion = DAO::conversacionVerOCrear($idUsuario);
 
 
-redireccionar("conversacionVerMensajes.php?idC=".$idConversacion."&usrId=".$_SESSION['id']);
+redireccionar("usuarioVerConversaciones.php?idC=".$idConversacion."&usrId=".$_SESSION['id']);
 
 
 ?>
