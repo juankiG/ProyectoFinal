@@ -31,6 +31,7 @@ if (!$rsMensajes) {
             width: 100%;
             font-family: 'Jost', sans-serif;
             color: darkorange;
+            font-size: 12px;
         }
 
         #datos-chat table tbody tr td:nth-child(3) {
@@ -42,6 +43,7 @@ if (!$rsMensajes) {
             padding: 5px;
             margin: 0;
             color: gray;
+            justify-content: flex-end;
         }
 
         #datos-chat table tbody tr td:nth-child(2) {
@@ -69,6 +71,7 @@ if (!$rsMensajes) {
 
         $usuario = DAO::usuarioObtenerPorId($idUsuarioConversacion);
         ?>
+
         <tr style=" <?php if ($usuario->getNombreUsuario() != $usuarioPerfil->getNombreUsuario()
         ) { ?>
                 justify-content: flex-start;

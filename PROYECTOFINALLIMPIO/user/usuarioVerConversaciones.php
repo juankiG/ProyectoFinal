@@ -9,6 +9,7 @@ $solicitudesAceptadas = DAO::usuarioSolicitudesAceptadas($_SESSION['id']);
 $solicitudesPendientes = DAO::usuarioSolicitudesPendientes($_SESSION['id']);
 $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 
+
 ?>
 
 <html>
@@ -70,12 +71,12 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
                             href="usuarioPerfil.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
                 <li><a
                             href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
-                <li><a href="../user/usuarioVerSolicitudes.php">Ver solicitudes
+                <li><a href="../user/usuarioVerSolicitudes.php">Solicitudes
                         (<?= count($solicitudesPendientes) ?>)</a></li>
                 <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
                         (<?= count($solicitudesRechazadas) ?>)</a></li>
                 <li style="background-color: rgb(15, 15, 31);border-bottom: 1px solid darkorange;"><a
-                            href="../user/usuarioVerConversaciones.php">Ver mensajes</a></li>
+                            href="../user/usuarioVerConversaciones.php">Mensajes</a></li>
             </ul>
         </div>
         <div class="mostrar-mensajes">
@@ -120,6 +121,36 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 
         </div>
         <div class="conversacion">
+            <div class="nombre-chat">
+                <h2>
+                    <?php
+
+                    if (isset($_REQUEST['idC'])) {
+                        foreach ($rs as $fila) {
+
+                            if ($fila['idConversacion'] == $_REQUEST['idC'] && $fila['idUsuarioDos'] == $_SESSION['id']) {
+
+                                $idUsuarioConversacion = $fila['idUsuarioUno'];
+
+
+                            }
+                            if ($fila['idConversacion'] == $_REQUEST['idC'] && $fila['idUsuarioUno'] == $_SESSION['id']) {
+                                $idUsuarioConversacion = $fila['idUsuarioDos'];
+                            }
+                        }
+                        $usuarioChat = DAO::usuarioObtenerPorId($idUsuarioConversacion);
+                        $texto=$usuarioChat->getNombreUsuario();;
+                        ?>
+                        <?=  $texto?>
+                        <?php
+                    }else{
+                        $texto="Selecciona una conversacion";
+
+                    ?>
+                    <?=  $texto?>
+                    <?php } ?>
+                </h2>
+            </div>
             <?php
             if (!isset($_REQUEST['idC']) && !isset($_REQUEST['usrId'])) {
                 ?>

@@ -68,11 +68,11 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
                 <li><a
                             href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
                 <li style="background-color: rgb(15, 15, 31);border-bottom: 1px solid darkorange;"><a
-                            href="../user/usuarioVerSolicitudes.php">Ver solicitudes
+                            href="../user/usuarioVerSolicitudes.php">Solicitudes
                         (<?= count($solicitudesPendientes) ?>)</a></li>
                 <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
                         (<?= count($solicitudesRechazadas) ?>)</a></li>
-                <li><a href="../user/usuarioVerConversaciones.php">Ver mensajes</a></li>
+                <li><a href="../user/usuarioVerConversaciones.php">mensajes</a></li>
             </ul>
         </div>
         <div class="mostrar-info">

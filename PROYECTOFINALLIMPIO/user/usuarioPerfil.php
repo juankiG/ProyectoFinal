@@ -98,11 +98,11 @@ if ($usuarioId == $_SESSION['id']) {
                     <li style="background-color: rgb(15, 15, 31);border-bottom: 1px solid darkorange;"><a
                                 href="usuarioPerfil.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
                     <li><a href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
-                    <li><a href="../user/usuarioVerSolicitudes.php">Ver solicitudes
+                    <li><a href="../user/usuarioVerSolicitudes.php">Solicitudes
                             (<?= count($solicitudesPendientes) ?>)</a></li>
                     <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
                             (<?= count($solicitudesRechazadas) ?>)</a></li>
-                    <li><a href="../user/usuarioVerConversaciones.php">Ver mensajes</a></li>
+                    <li><a href="../user/usuarioVerConversaciones.php">Mensajes</a></li>
                 </ul>
             </div>
             <div class="mostrar-info">
@@ -229,11 +229,11 @@ if ($usuarioId == $_SESSION['id']) {
                     <li><a
                                 href="usuarioPerfil.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
                     <li><a href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
-                    <li><a href="../user/usuarioVerSolicitudes.php">Ver solicitudes
+                    <li><a href="../user/usuarioVerSolicitudes.php">Solicitudes
                             (<?= count($solicitudesPendientes) ?>)</a></li>
                     <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
                             (<?= count($solicitudesRechazadas) ?>)</a></li>
-                    <li><a href="../user/usuarioVerConversaciones.php">Ver mensajes</a></li>
+                    <li><a href="../user/usuarioVerConversaciones.php">Mensajes</a></li>
                 </ul>
             </div>
             <div class="mostrar-info">
