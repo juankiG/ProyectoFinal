@@ -61,6 +61,7 @@ class DAO
         else return null;
     }
 
+
     public static function usuarioObtenerPorUsuarioYContrasenna($nombreUsuario, $contrasenna): Usuario
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=? AND BINARY contrasenna=?",
@@ -134,6 +135,16 @@ class DAO
         }
 
     }
+    public static function usuarioObtenerPorNombreUsuario(string $nombreUsuario)
+    {
+        $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE nombreUsuario=?", [$nombreUsuario]);
+        if($rs){
+            return self::crearUsuarioDesdeRs($rs);
+        }else{
+            return null;
+        }
+
+    }
 
     public static function usuarioObtenerIdPorEmail(string $email)
     {
@@ -161,7 +172,7 @@ class DAO
     {
 
         $records = [];
-        $rs = self::ejecutarConsulta("SELECT nombreUsuario, recordUsuario FROM `recordusuario` INNER JOIN usuarios on idUsuario=id WHERE idJuego=? ORDER by recordusuario DESC", [ $idJuego]);
+        $rs = self::ejecutarConsulta("SELECT nombreUsuario, recordUsuario FROM `recordusuario` INNER JOIN usuarios on idUsuario=id WHERE idJuego=? ORDER by recordusuario DESC LIMIT 5", [ $idJuego]);
 
         foreach ($rs as $fila) {
             $record = new Record($fila["nombreUsuario"], $fila["recordUsuario"]);
@@ -373,6 +384,8 @@ class DAO
         return $rs;
 
     }
+
+
 
     public static function conversacionNuevoMensaje($idConversacion, $textoMensaje, $fechaMensaje){
 

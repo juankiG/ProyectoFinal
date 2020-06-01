@@ -7,16 +7,15 @@ $fechaActual = date('m/d/Y H:i:s', time());
 $fechaActual = date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $fechaActual)));
 
 
-
-if(isset($_REQUEST['idC'])){
-    $_SESSION['idC']=$_REQUEST['idC'];
+if (isset($_REQUEST['idC'])) {
+    $_SESSION['idC'] = $_REQUEST['idC'];
 }
 
 $rsMensajes = DAO::conversacionObtenerMensajes($_SESSION['idC']);
 
-$noMensajes="";
-if(!$rsMensajes){
-    $noMensajes="No hay mensajes aún";
+$noMensajes = "";
+if (!$rsMensajes) {
+    $noMensajes = "No hay mensajes aún";
 }
 
 ?>
@@ -28,12 +27,13 @@ if(!$rsMensajes){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        .scrolleable{
+        .scrolleable {
             background-color: white;
             width: 500px;
             height: 700px;
             overflow: scroll;
         }
+
         .TextBox {
             width: 500px;
             height: 50px;
@@ -41,17 +41,19 @@ if(!$rsMensajes){
             margin-left: auto;
             margin-right: auto;
         }
-        #textboxid
-        {
-            height:200px;
-            font-size:14pt;
+
+        #textboxid {
+            height: 200px;
+            font-size: 14pt;
         }
     </style>
     <title>Document</title>
     <script type="text/javascript">
+
+
         function ajax() {
-            var usrId= document.getElementById('usrId').value;
-            var idc= document.getElementById('idC').value;
+            var usrId = document.getElementById('usrId').value;
+            var idc = document.getElementById('idC').value;
 
             var req = new XMLHttpRequest();
             req.onreadystatechange = function () {
@@ -60,9 +62,10 @@ if(!$rsMensajes){
 
                 }
             }
-            req.open('GET', "chatConversacion.php?idC="+idc+"&usrId="+usrId, true);
+            req.open('GET', "chatConversacion.php?idC=" + idc + "&usrId=" + usrId, true);
             req.send();
         }
+
 
         setInterval(function () {
             ajax();
@@ -70,20 +73,19 @@ if(!$rsMensajes){
     </script>
 </head>
 
-<body onload="ajax()" >
+<body onload="ajax()">
 <div id="contenedor">
-    <p><?php echo $noMensajes?></p>
     <div id="caja-chat">
+
         <div class="scrolleable" id="chat">
 
         </div>
     </div>
     <form action="nuevoMensajeGestionar.php">
         <textarea name="mensaje" class="textbox" placeholder="Escribe un nuevo mensaje"></textarea>
-        <!-- <input type="text" id="textboxid" placeholder="Escribe un mensaje" name="mensaje"> -->
-        <input type="hidden" name="fecha" value="<?=$fechaActual?>">
-        <input type="hidden" name="idConversacion" id="idC" value="<?=$_REQUEST['idC']?>">
-        <input type="hidden" name="usrId" id="usrId" value="<?=$_REQUEST['usrId']?>">
+        <input type="hidden" name="fecha" value="<?= $fechaActual ?>">
+        <input type="hidden" name="idConversacion" id="idC" value="<?= $_REQUEST['idC'] ?>">
+        <input type="hidden" name="usrId" id="usrId" value="<?= $_REQUEST['usrId'] ?>">
         <input type="submit" value="Enviar">
     </form>
 

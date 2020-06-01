@@ -2,11 +2,11 @@
 require_once "../../_com/sesiones.php";
 
 if (!haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("../../user/sesion-inicio.php");
-$juegoActual= $_REQUEST['juego'];
+$juegoActual = $_REQUEST['juego'];
 
-$juego= DAO::juegoObtenerPorNombre($juegoActual);
+$juego = DAO::juegoObtenerPorNombre($juegoActual);
 
-$recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
+$recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 ?>
 
 <!DOCTYPE html>
@@ -26,26 +26,61 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pong.css">
+
     <title>PONG</title>
 </head>
-<style>
-    body{
-        text-align: center;
-    }
-</style>
+
 
 <body>
 <script>
-    var id="<?php echo $juego->getId();?>";
+    var id = "<?php echo $juego->getId();?>";
 
 </script>
+<nav>
+    <div class="logo">
+        <a href="../../user/usuarioPantallaPrincipal.php"><img src="../../user/IMG/logo.webp" alt=""></a>
+    </div>
 
-<canvas>
-</canvas>
+</nav>
+<main>
+    <div class="juego">
+        <canvas>
+        </canvas>
+    </div>
+    <div class="info">
+        <div class="puntuacion">
+
+            <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
+        </div>
+
+        <div class="descripcion">
+
+            <?php
+            require_once "../DescripcionJuego.php";
+            ?>
+
+        </div>
+
+
+        <div class="record">
+            <?php
+            require_once "../RecordJuego.php";
+            ?>
+        </div>
+        <div class="salir">
+            <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+        </div>
+    </div>
+</main>
+
+
 </body>
 <script>
     // Global Variables
-    var count=0
+    var count = 0
     var DIRECTION = {
         IDLE: 0,
         UP: 1,
@@ -93,7 +128,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             this.context = this.canvas.getContext('2d');
 
             this.canvas.width = 1920;
-            this.canvas.height =1080;
+            this.canvas.height = 1080;
 
             this.canvas.style.width = (this.canvas.width / 2) + 'px';
             this.canvas.style.height = (this.canvas.height / 2.5) + 'px';
@@ -162,7 +197,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
             // Draw the 'press any key to begin' text
 
-            this.context.fillText('Press any key to begin',
+            this.context.fillText('Pulsa cualquier tecla para empezar',
                 this.canvas.width / 2,
                 this.canvas.height / 2 + 15
             );
@@ -221,10 +256,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                         this.ball.moveX = DIRECTION.RIGHT;
 
                         beep1.play();
-                        count+=1;
-                        this.player.speed*=1.06;
-                        this.paddle.speed*=1.04;
-                        this.ball.speed *=1.06
+                        count += 1;
+                        this.player.speed *= 1.06;
+                        this.paddle.speed *= 1.04;
+                        this.ball.speed *= 1.06
                     }
                 }
 
@@ -235,10 +270,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                         this.ball.moveX = DIRECTION.LEFT;
 
                         beep1.play();
-                        count+=1;
-                        this.player.speed*=1.06;
-                        this.paddle.speed*=1.0;
-                        this.ball.speed *=1.06
+                        count += 1;
+                        this.player.speed *= 1.06;
+                        this.paddle.speed *= 1.0;
+                        this.ball.speed *= 1.06
                     }
                 }
             }
@@ -250,8 +285,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                 // there are not.
                 if (!rounds[this.round + 1]) {
                     this.over = true;
-                    setTimeout(function () { Pong.endGameMenu('Winner!'); }, 1000);
-                    document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.round ;
+                    setTimeout(function () {
+                        Pong.endGameMenu('Winner!');
+                    }, 1000);
+                    document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
                 } else {
                     // If there is another round, reset all the values and increment the round number.
                     this.color = this._generateRoundColor();
@@ -268,8 +305,11 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             // Check to see if the paddle/AI has won the round.
             else if (this.paddle.score === rounds[this.round]) {
                 this.over = true;
-                setTimeout(function () { Pong.endGameMenu('Game Over!'); }, 1000);
-                document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.round ;
+                setTimeout(function () {
+                    Pong.endGameMenu('Game Over!');
+                }, 1000);
+                document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
+
 
             }
 
@@ -357,7 +397,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
             // Draw the winning score (center)
             this.context.fillText(
-                'Round ' + (this.round+1),
+                'Round ' + (this.round + 1),
                 (this.canvas.width / 2),
                 35
             );
@@ -397,15 +437,17 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             });
 
             // Stop the player from moving when there are no keys being pressed.
-            document.addEventListener('keyup', function (key) { Pong.player.move = DIRECTION.IDLE; });
+            document.addEventListener('keyup', function (key) {
+                Pong.player.move = DIRECTION.IDLE;
+            });
         },
 
         // Reset the ball location, the player turns and set a delay before the next round begins.
-        _resetTurn: function(victor, loser) {
+        _resetTurn: function (victor, loser) {
 
             this.ball = Ball.new.call(this, 10);
-            this.player.speed=9;
-            this.paddle.speed=9;
+            this.player.speed = 9;
+            this.paddle.speed = 9;
             this.turn = loser;
             this.timer = (new Date()).getTime();
 
@@ -416,7 +458,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         },
 
         // Wait for a delay to have passed after each turn.
-        _turnDelayIsOver: function() {
+        _turnDelayIsOver: function () {
             return ((new Date()).getTime() - this.timer >= 1000);
         },
 
@@ -432,25 +474,5 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     Pong.initialize();
 </script>
 
-<div>
-    <h1 class="puntuacion"></h1>
-    <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
-</div>
 
-<div class="descripcion">
-
-    <?php
-    require_once "../DescripcionJuego.php";
-    ?>
-
-</div>
-<div>
-    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
-</div>
-
-<div class="record">
-    <?php
-    require_once "../RecordJuego.php";
-    ?>
-</div>
 </html>

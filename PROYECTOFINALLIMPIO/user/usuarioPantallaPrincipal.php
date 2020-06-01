@@ -2,11 +2,11 @@
 session_start();
 require_once "../_com/comunes-app.php";
 $id = $_SESSION['id'];
-$usuario= DAO::usuarioObtenerPorId($id);
+$usuario = DAO::usuarioObtenerPorId($id);
 
 $juegos = DAO::juegoObtenerTodos();
-if(isset($_REQUEST['Enviar']))
-    DAO::mensajeInsertar($usuario->getId(),$_REQUEST['mensaje']);
+if (isset($_REQUEST['Enviar']))
+    DAO::mensajeInsertar($usuario->getId(), $_REQUEST['mensaje']);
 
 ?>
 
@@ -17,46 +17,102 @@ if(isset($_REQUEST['Enviar']))
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="estilos.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo_principal.css">
     <title>Inicio</title>
 </head>
 <body>
-<h1>Bienvenido!!</h1>
-<div>
-    <?php require "../_com/info-sesion.php"; ?>
-</div>
-<br>
-<div id="buscarUsuario">
-    <p>¿Buscar un usuario?</p>
-    <form action="usuarioPerfil.php">
-        <input type="text" name="nombreUsuario" placeholder="Nombre usuario...">
+<nav>
+    <div class="logo">
+        <a href="usuarioPantallaPrincipal.php"><img src="IMG/logo.webp" alt=""></a>
+    </div>
+    <div class="buscar">
+    <form action="buscador.php">
+        <input type="text" name="Nombre" placeholder="Buscar...">
         <input type="submit" value="Buscar">
     </form>
-</div>
-<br>
-<h3>¿A qué vamos a jugar?</h3>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="usuarioPantallaPrincipal.php">Inicio</a></li>
+            <li class="perfil"><a>Perfil</a>
+                <div class="submenu">
+                    <ul>
+                        <li><a style="padding: 0">
+                                <form class="ver-perfil-form" action="../user/usuarioPerfil.php" method="post">
+                                    <input type="submit" value="Ver mi perfil">
+                                    <input type="hidden" name="nombreUsuario" value="<?= $_SESSION["nombreUsuario"] ?>">
+                                </form>
+                            </a></li>
+                        <?php
+                        if ($usuario->getTipoUsuario() == 1) {
+                            ?>
 
-<?php
-foreach ($juegos as $juego) {
-    $nombreJuego= $juego->getNombre();
-    $linkImagen= $juego->getLinkImagen();
+                            <li><a href=".././_ad/subirJuego.php">subir juego</a></li><?php
+                        }
+                        ?>
+                        <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
 
-?>
-    <p><a href="../juegos/<?= $nombreJuego?>Game/index.php?juego=<?= $nombreJuego?>"><img src="<?= $linkImagen?>"/></a></p>
+                    </ul>
+                </div>
 
-<?php
-}
-?>
-<?php
-require_once "chatEnLinea.php";
-?>
-<?php
-if($usuario->getTipoUsuario()==1) {
-    ?>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="chat">
 
-    <a href=".././_ad/subirJuego.php">subir juego</a><?php
-}
-?>
+        <?php
+        require_once "chatEnLinea.php";
+        ?>
+
+    </div>
+    <div id="contenido">
+        <?php// require "../_com/info-sesion.php"; ?>
+        <div class="juegos">
+
+            <?php
+            foreach ($juegos as $juego) {
+                $nombreJuego = $juego->getNombre();
+                $linkImagen = $juego->getLinkImagen();
+                $descripcionJuego = $juego->getDescripcion();
+
+
+                ?>
+                <div id="juego">
+
+                <a href="../juegos/<?= $nombreJuego ?>Game/index.php?juego=<?= $nombreJuego ?>"><img
+                                src="<?= $linkImagen ?>"/></a>
+
+                <div class="descripcion-juego">
+
+                        <h2> <?=$nombreJuego ?> </h2>
+
+                    <p><?=$descripcionJuego ?></p>
+                </div>
+                </div>
+
+                <?php
+            }
+            ?>
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

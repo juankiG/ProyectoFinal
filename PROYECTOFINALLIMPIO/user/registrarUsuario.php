@@ -13,6 +13,9 @@
         nav ul li[class="registro"]{
             border-bottom: 2px solid darkorange;
         }
+        body{
+            height: 95%;
+        }
     </style>
 
 </head>
