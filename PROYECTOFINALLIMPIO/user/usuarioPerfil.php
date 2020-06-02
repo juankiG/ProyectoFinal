@@ -27,15 +27,8 @@ if ($usuarioId == $_SESSION['id']) {
     $solicitudesPendientes = DAO::usuarioSolicitudesPendientes($_SESSION['id']);
     $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 
-    //mostrar record
-    $tetris = DAO::juegoObtenerPorNombre("tetris");
-    $record_tetris = DAO::usuarioObtenerRecord($usuarioId, $tetris->getId());
 
-    $pong = DAO::juegoObtenerPorNombre("pong");
-    $record_pong = DAO::usuarioObtenerRecord($usuarioId, $pong->getId());
-
-    $snake = DAO::juegoObtenerPorNombre("snake");
-    $record_snake = DAO::usuarioObtenerRecord($usuarioId, $snake->getId());
+    $juegos= DAO::juegoObtenerTodos()
     ?>
     <html>
     <head>
@@ -114,23 +107,28 @@ if ($usuarioId == $_SESSION['id']) {
                     <p>Rango en Minijuegos </p>
                     <input type="text" disabled value="  <?= $rango ?>">
                     <div class="records">
-                        <table>
-                            <tr>
+                      <table>
+                             <tr>
                                 <th>Juego</th>
                                 <th>Puntuación</th>
                             </tr>
+                         <?php
+                        foreach ($juegos as $juego) {
+                            $nombreJuego = $juego->getNombre();
+                            $record = DAO::usuarioObtenerRecord($usuarioId, $juego->getId());
+
+
+                            ?>
+
+
                             <tr>
-                                <td>Tetris</td>
-                                <td><?=$record_tetris?></td>
+                                <td><?= $nombreJuego ?></td>
+                                <td><?= $record ?></td>
                             </tr>
-                            <tr>
-                                <td>Pong</td>
-                                <td><?=$record_pong?></td>
-                            </tr>
-                            <tr>
-                                <td>Snake</td>
-                                <td><?=$record_snake?></td>
-                            </tr>
+                            <?php
+                        }
+ ?>
+
                         </table>
                     </div>
                 </div>
