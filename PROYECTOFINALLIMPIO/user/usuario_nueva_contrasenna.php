@@ -30,7 +30,7 @@ if(isset($_REQUEST['id'])){
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form id="loginform" class="form-horizontal" role="form" action="gestionarRecuperarContrasenna.php" method="GET" autocomplete="off">
+                <form id="loginform" class="form-horizontal" role="form" action="gestion_recuperar_contrasenna.php" method="GET" autocomplete="off">
                     <p style="width: 100%;text-align: center">Introduce la nueva contraseña</p>
                     <div style="margin-bottom: 25px" class="input-group">
 

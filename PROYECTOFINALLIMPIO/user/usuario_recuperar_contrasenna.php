@@ -23,8 +23,8 @@
     <nav>
         <ul>
             <li class="inicio_sesion"><a href="sesion-inicio.php">Inicio de sesión</a></li>
-            <li class="registro"><a href="registrarUsuario.php">Registrate aquí</a></li>
-            <li class="recuperar_contra"><a href="recuperarContrasennaUsuario.php">Recordar contraseña</a></li>
+            <li class="registro"><a href="usuario_registrar.php">Registrate aquí</a></li>
+            <li class="recuperar_contra"><a href="usuario_recuperar_contrasenna.php">Recordar contraseña</a></li>
 
 
 
@@ -43,7 +43,7 @@
 						
 						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 						
-						<form id="loginform" class="form-horizontal" role="form" action="gestionarRecuperarContrasenna.php" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form" action="gestion_recuperar_contrasenna.php" method="POST" autocomplete="off">
 							
 							<div style="margin-bottom: 25px;flex-wrap: wrap;justify-content: center" class="input-group">
                                 <?php

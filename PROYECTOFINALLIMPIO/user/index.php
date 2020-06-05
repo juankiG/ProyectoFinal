@@ -26,7 +26,7 @@ if (isset($_REQUEST['Enviar']))
 <body>
 <nav>
     <div class="logo">
-        <a href="usuarioPantallaPrincipal.php"><img src="IMG/logo.webp" alt=""></a>
+        <a href="index.php"><img src="IMG/logo.webp" alt=""></a>
     </div>
     <div class="buscar">
     <form action="buscador.php">
@@ -36,12 +36,12 @@ if (isset($_REQUEST['Enviar']))
     </div>
     <div class="menu">
         <ul>
-            <li><a href="usuarioPantallaPrincipal.php">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li class="perfil"><a>Perfil</a>
                 <div class="submenu">
                     <ul>
                         <li><a style="padding: 0">
-                                <form class="ver-perfil-form" action="../user/usuarioPerfil.php" method="post">
+                                <form class="ver-perfil-form" action="perfil_usuario.php" method="post">
                                     <input type="submit" value="Ver mi perfil">
                                     <input type="hidden" name="nombreUsuario" value="<?= $_SESSION["nombreUsuario"] ?>">
                                 </form>
@@ -50,7 +50,7 @@ if (isset($_REQUEST['Enviar']))
                         if ($usuario->getTipoUsuario() == 1) {
                             ?>
 
-                            <li><a href=".././_ad/subirJuego.php">subir juego</a></li><?php
+                            <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><?php
                         }
                         ?>
                         <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -66,7 +66,7 @@ if (isset($_REQUEST['Enviar']))
     <div class="chat">
 
         <?php
-        require_once "chatEnLinea.php";
+        require_once "chat_enLinea.php";
         ?>
 
     </div>

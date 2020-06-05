@@ -62,7 +62,7 @@ if (!$rsMensajes) {
 
                 }
             }
-            req.open('GET', "chatConversacion.php?idC=" + idc + "&usrId=" + usrId, true);
+            req.open('GET', "chat_conversacion.php?idC=" + idc + "&usrId=" + usrId, true);
             req.send();
         }
 
@@ -81,7 +81,7 @@ if (!$rsMensajes) {
 
         </div>
     </div>
-    <form action="nuevoMensajeGestionar.php">
+    <form action="gestion_nuevo_mensaje.php">
         <textarea name="mensaje" class="textbox" placeholder="Escribe un nuevo mensaje"></textarea>
         <input type="hidden" name="fecha" value="<?= $fechaActual ?>">
         <input type="hidden" name="idConversacion" id="idC" value="<?= $_REQUEST['idC'] ?>">

@@ -26,7 +26,7 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 <body>
 <nav>
     <div class="logo">
-        <a href="usuarioPantallaPrincipal.php"><img src="IMG/logo.webp" alt=""></a>
+        <a href="index.php"><img src="IMG/logo.webp" alt=""></a>
     </div>
     <div class="buscar">
         <form action="buscador.php">
@@ -36,12 +36,12 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
     </div>
     <div class="menu">
         <ul>
-            <li><a href="usuarioPantallaPrincipal.php">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li class="perfil"><a>Perfil</a>
                 <div class="submenu">
                     <ul>
                         <li><a style="padding: 0">
-                                <form class="ver-perfil-form" action="../user/usuarioPerfil.php" method="post">
+                                <form class="ver-perfil-form" action="perfil_usuario.php" method="post">
                                     <input type="submit" value="Ver mi perfil">
                                     <input type="hidden" name="nombreUsuario"
                                            value="<?= $_SESSION["nombreUsuario"] ?>">
@@ -51,7 +51,7 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
                         if ($usuario->getTipoUsuario() == 1) {
                             ?>
 
-                            <li><a href=".././_ad/subirJuego.php">subir juego</a></li><?php
+                            <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><?php
                         }
                         ?>
                         <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -68,21 +68,21 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
         <div class="menu-perfil">
             <ul>
                 <li><a
-                            href="usuarioPerfil.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
+                            href="perfil_usuario.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
                 <li><a
-                            href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
-                <li><a href="../user/usuarioVerSolicitudes.php">Solicitudes
+                            href="perfil_amigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
+                <li><a href="perfil_solicitudes.php">Solicitudes
                         (<?= count($solicitudesPendientes) ?>)</a></li>
-                <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
+                <li><a href="perfil_solicitudes_rechazadas.php">Solicitudes rechazadas
                         (<?= count($solicitudesRechazadas) ?>)</a></li>
                 <li style="background-color: rgb(15, 15, 31);border-bottom: 1px solid darkorange;"><a
-                            href="../user/usuarioVerConversaciones.php">Mensajes</a></li>
+                            href="perfil_mensajes.php">Mensajes</a></li>
             </ul>
         </div>
         <div class="mostrar-mensajes">
             <div class="buscar-mensaje">
                 <p>Nuevo mensaje para:</p>
-                <form action="nuevoMensajePerfilGestionar.php">
+                <form action="buscador_mensajes.php">
                     <input type="text" name="usrName" placeholder=" Usuario">
                     <input type="submit" value="buscar">
                 </form>
@@ -105,15 +105,19 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
                         }
 
                         $usuario = DAO::usuarioObtenerPorId($idUsuarioConversacion);
+                        if(!isset($usuario)){
+                            redireccionar("perfil_mensajes");
+
+                        }else{
                         ?>
                         <li>
-                            <a href="usuarioPerfil.php?nombreUsuario=<?= $usuario->getNombreUsuario() ?>"><?= $usuario->getNombreUsuario() ?>
+                            <a href="perfil_usuario.php?nombreUsuario=<?= $usuario->getNombreUsuario() ?>"><?= $usuario->getNombreUsuario() ?>
                             </a>
-                            <a href="usuarioVerConversaciones.php?idC=<?= $fila['idConversacion'] ?>&usrId=<?= $_SESSION['id'] ?>">Ver
+                            <a href="perfil_mensajes.php?idC=<?= $fila['idConversacion'] ?>&usrId=<?= $_SESSION['id'] ?>">Ver
                                 mensajes</a>
                         </li>
                         <?php
-                    }
+                    }}
                     ?>
                 </ul>
 
@@ -158,7 +162,7 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
             } else {
                 $idC = $_REQUEST['idC'];
                 $usrId = $_SESSION["id"];
-                require_once "conversacionVerMensajes.php";
+                require_once "perfil_ver_conversacion.php";
             }
             ?>
         </div>

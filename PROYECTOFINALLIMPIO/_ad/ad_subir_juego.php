@@ -95,7 +95,7 @@
     <input type="text" class="" name="nombre" placeholder="nombre del juego" required/>
     <input type="text" class="" name="Nombrecarpeta" placeholder="Nombre carpeta" required/>
     <input type="text" class="" name="descripcion" placeholder="descripcion" required/>
-    <button><a href="../user/usuarioPantallaPrincipal.php">Cancelar</a></button>
+    <button><a href="../user/index.php">Cancelar</a></button>
     <input  style="width: 50%" type="submit" name="submit" value="Subir"/>
 
 </form>

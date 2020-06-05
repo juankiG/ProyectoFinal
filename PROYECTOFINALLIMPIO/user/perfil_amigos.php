@@ -21,7 +21,7 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 <body>
 <nav>
     <div class="logo">
-        <a href="usuarioPantallaPrincipal.php"><img src="IMG/logo.webp" alt=""></a>
+        <a href="index.php"><img src="IMG/logo.webp" alt=""></a>
     </div>
     <div class="buscar">
         <form action="buscador.php">
@@ -31,12 +31,12 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
     </div>
     <div class="menu">
         <ul>
-            <li><a href="usuarioPantallaPrincipal.php">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li class="perfil"><a>Perfil</a>
                 <div class="submenu">
                     <ul>
                         <li><a style="padding: 0">
-                                <form class="ver-perfil-form" action="../user/usuarioPerfil.php" method="post">
+                                <form class="ver-perfil-form" action="perfil_usuario.php" method="post">
                                     <input type="submit" value="Ver mi perfil">
                                     <input type="hidden" name="nombreUsuario"
                                            value="<?= $_SESSION["nombreUsuario"] ?>">
@@ -46,7 +46,7 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
                         if ($usuario->getTipoUsuario() == 1) {
                             ?>
 
-                            <li><a href=".././_ad/subirJuego.php">subir juego</a></li><?php
+                            <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><?php
                         }
                         ?>
                         <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -63,14 +63,14 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
         <div class="menu-perfil">
             <ul>
                 <li><a
-                            href="usuarioPerfil.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
+                            href="perfil_usuario.php?nombreUsuario=<?= $nomre_usuario ?>">Tu perfil</a></li>
                 <li style="background-color: rgb(15, 15, 31);border-bottom: 1px solid darkorange;"><a
-                            href="../user/usuarioVerAmigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
-                <li><a href="../user/usuarioVerSolicitudes.php">Solicitudes
+                            href="perfil_amigos.php">Amigos (<?= count($solicitudesAceptadas) ?>)</a></li>
+                <li><a href="perfil_solicitudes.php">Solicitudes
                         (<?= count($solicitudesPendientes) ?>)</a></li>
-                <li><a href="../user/usuarioVerSolicitudesRechazadas.php">Solicitudes rechazadas
+                <li><a href="perfil_solicitudes_rechazadas.php">Solicitudes rechazadas
                         (<?= count($solicitudesRechazadas) ?>)</a></li>
-                <li><a href="../user/usuarioVerConversaciones.php">Mensajes</a></li>
+                <li><a href="perfil_mensajes.php">Mensajes</a></li>
             </ul>
         </div>
         <div class="mostrar-info">
@@ -106,8 +106,8 @@ $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 
                             <li>
                                 <a
-                                        href="usuarioPerfil.php?nombreUsuario=<?= $nombreUsuarioSolicitud ?>"><?= $nombreUsuarioSolicitud ?></a>
-                                <form action="gestionarSolicitud.php">
+                                        href="perfil_usuario.php?nombreUsuario=<?= $nombreUsuarioSolicitud ?>"><?= $nombreUsuarioSolicitud ?></a>
+                                <form action="gestion_solicitud.php">
                                     <input type="hidden" name="idEnviador" value="<?= $idUsuarioSolicitud ?>">
                                     <input type="hidden" name="nombreUsuario"
                                            value="<?= $usuario->getNombreUsuario() ?>">

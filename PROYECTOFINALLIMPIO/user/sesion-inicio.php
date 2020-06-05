@@ -2,7 +2,7 @@
 session_start();
 require_once "../_com/sesiones.php";
 
-if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToken'])) redireccionar("usuarioPantallaPrincipal.php");
+if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToken'])) redireccionar("index.php");
 
 ?>
 
@@ -31,8 +31,8 @@ if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToke
 <nav>
     <ul>
         <li class="inicio_sesion"><a href="sesion-inicio.php">Inicio de sesión</a></li>
-        <li class="registro"><a href="registrarUsuario.php">Registrate aquí</a></li>
-        <li class="recuperar_contra"><a href="recuperarContrasennaUsuario.php">Recordar contraseña</a></li>
+        <li class="registro"><a href="usuario_registrar.php">Registrate aquí</a></li>
+        <li class="recuperar_contra"><a href="usuario_recuperar_contrasenna.php">Recordar contraseña</a></li>
 
     </ul>
 </nav>
@@ -50,7 +50,7 @@ if (haySesionIniciada() || comprobarCookieRecurdame()&& !isset($_REQUEST['noToke
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form id="loginform" class="form-horizontal" role="form" action="usuarioPantallaPrincipal.php" method="POST" autocomplete="off">
+                <form id="loginform" class="form-horizontal" role="form" action="index.php" method="POST" autocomplete="off">
                     <?php
                     if (isset($_REQUEST["incorrecto"])) {
                         echo "<p>Usuario o contraseña incorrectos.</p>";
