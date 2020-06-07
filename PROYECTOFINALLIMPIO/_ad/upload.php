@@ -15,7 +15,7 @@ $product_link = $_FILES['link']['name'];
 $product_link_tmp = $_FILES['link']['tmp_name'];
 move_uploaded_file($product_link_tmp,"$directorio/$product_link");
         DAO::juegoAgegarBD($juego,$descripcion,"../contenido/recursos/".$product_image,$product_link);
-        redireccionar(".././user/usuarioPantallaPrincipal.php");
+        redireccionar(".././user/index.php");
 
 
 

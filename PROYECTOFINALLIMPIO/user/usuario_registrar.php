@@ -24,8 +24,8 @@
 <nav>
     <ul>
         <li class="inicio_sesion"><a href="sesion-inicio.php">Inicio de sesión</a></li>
-        <li class="registro"><a href="registrarUsuario.php">Registrate aquí</a></li>
-        <li class="recuperar_contra"><a href="recuperarContrasennaUsuario.php">Recordar contraseña</a></li>
+        <li class="registro"><a href="usuario_registrar.php">Registrate aquí</a></li>
+        <li class="recuperar_contra"><a href="usuario_recuperar_contrasenna.php">Recordar contraseña</a></li>
 
 
     </ul>
@@ -40,7 +40,7 @@
 
             <div class="panel-body">
 
-                <form id="signupform" class="form-horizontal" role="form" action="gestionar_registro.php" method="POST"
+                <form id="signupform" class="form-horizontal" role="form" action="gestion_registro.php" method="POST"
                       autocomplete="off">
                     <?php
                     if (isset($_REQUEST["incorrecto"])) {

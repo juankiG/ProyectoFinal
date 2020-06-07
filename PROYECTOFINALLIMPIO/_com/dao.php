@@ -194,11 +194,11 @@ class DAO
     {
         $usuarioExiste = self::usuarioObtenerIdPorNombreUsuario($nombreUsuario);
         if($usuarioExiste){
-            redireccionar("../user/registrarUsuario.php?errUs=t");
+            redireccionar("../user/usuario_registrar.php?errUs=t");
         }
         $usuarioExiste = self::usuarioObtenerIdPorEmail($email);
         if($usuarioExiste){
-            redireccionar("../user/registrarUsuario.php?errEm=t");
+            redireccionar("../user/usuario_registrar.php?errEm=t");
         }
 
         self::ejecutarActualizacion(

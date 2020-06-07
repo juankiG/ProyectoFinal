@@ -24,7 +24,7 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 </script>
 <nav>
     <div class="logo">
-        <a href="../../user/usuarioPantallaPrincipal.php"><img src="../../user/IMG/logo.webp" alt=""></a>
+        <a href="../../user/index.php"><img src="../../user/IMG/logo.webp" alt=""></a>
     </div>
 
 </nav>
@@ -44,18 +44,18 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         <div class="descripcion">
 
             <?php
-            require_once "../DescripcionJuego.php";
+            require_once "../juego_descripcion.php";
             ?>
 
         </div>
 
         <div class="record">
             <?php
-            require_once "../RecordJuego.php";
+            require_once "../juego_record.php";
             ?>
         </div>
         <div class="salir">
-            <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
+            <a href="../../user/index.php">salir</a>
         </div>
     </div>
 

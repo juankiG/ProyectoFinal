@@ -11,8 +11,8 @@ if($juego!=null){
     redireccionar("../juegos/".$nombreJuego."Game/index.php?juego=".$nombreJuego);
 }elseif ($usuario!=null){
     $nombreUsuario=$usuario->getNombreUsuario();
-    redireccionar("usuarioPerfil.php?nombreUsuario=".$nombreUsuario);
+    redireccionar("perfil_usuario.php?nombreUsuario=".$nombreUsuario);
 }else{
-    redireccionar('../_com/recursoNoDisponible.php');
+    redireccionar('../_com/recurso_no_disponible.php');
 
 }

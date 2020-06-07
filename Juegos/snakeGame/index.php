@@ -48,14 +48,14 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 <div class="descripcion">
 
     <?php
-    require_once "../DescripcionJuego.php";
+    require_once "../juego_descripcion.php";
     ?>
 
 </div>
 
 <div class="record">
     <?php
-    require_once "../RecordJuego.php";
+    require_once "../juego_record.php";
     ?>
 </div>
 <div>
