@@ -1,6 +1,8 @@
 <html>
 <head>
     <title>Registro</title>
+    <link rel="icon" href=IMG/logo.webp">
+
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">

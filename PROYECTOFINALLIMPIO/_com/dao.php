@@ -156,6 +156,16 @@ class DAO
         }
 
     }
+    public static function usuariosObtener()
+    {
+        $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE tipoUsuario=0", []);
+        if($rs){
+            return self::crearUsuarioDesdeRs($rs);
+        }else{
+            return null;
+        }
+
+    }
 
     public static function usuarioObtenerRecord($idUsuario, $idJuego)
     {
@@ -284,6 +294,14 @@ class DAO
         $rs = self::ejecutarConsulta
         ("DELETE FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idEnviador, $idReceptor]);
+
+    }
+    public static function usuarioEliminar(int $id)
+    {
+        $rs = self::ejecutarConsulta
+        ("DELETE FROM usuarios WHERE id=?",
+            [$id]);
+
 
     }
 
