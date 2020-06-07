@@ -57,7 +57,9 @@ class DAO
     public static function usuarioObtenerPorId(int $id): Usuario
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE id=?", [$id]);
-        if ($rs) return self::crearUsuarioDesdeRs($rs);
+        if ($rs){
+            return self::crearUsuarioDesdeRs($rs);
+        }
         else return null;
     }
 
@@ -158,12 +160,14 @@ class DAO
     }
     public static function usuariosObtener()
     {
-        $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE tipoUsuario=0", []);
-        if($rs){
-            return self::crearUsuarioDesdeRs($rs);
-        }else{
-            return null;
+        $juegos = [];
+        $rs = self::ejecutarConsulta("SELECT * FROM usuarios where tipousuario=0", []);
+
+        foreach ($rs as $fila) {
+            $juego = new Usuario($fila["id"], $fila["nombre"], $fila["email"], $fila["contrasenna"],$fila["tipoUsuario"],$fila["nombreUsuario"],$fila["codigoCookie"],$fila["token"]);
+            array_push($juegos, $juego);
         }
+        return $juegos;
 
     }
 

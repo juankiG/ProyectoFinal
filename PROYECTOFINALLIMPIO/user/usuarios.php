@@ -9,6 +9,7 @@ $usuarios=DAO::usuariosObtener();
 
     <title>Inicio</title>
 </head>
+
 <body>
 <div >
 
@@ -42,7 +43,8 @@ $usuarios=DAO::usuariosObtener();
                    <td><?php echo $nombreUsuario?></td>
 
                    <td><?php echo $emailusuario?></td>
-                   <a href="eliminarUsuario.php?id=<?php echo $id?>">eliminar usuario</a>
+                   <td>                   <a href="eliminarUsuario.php?id=<?php echo $id?>">eliminar usuario</a>
+                   </td>
                </tr>
 
 
