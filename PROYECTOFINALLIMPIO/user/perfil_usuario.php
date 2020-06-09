@@ -70,7 +70,7 @@ if ($usuarioId == $_SESSION['id']) {
                             if ($usuario->getTipoUsuario() == 1) {
                                 ?>
 
-                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><?php
+                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
                             }
                             ?>
                             <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -208,7 +208,7 @@ if ($usuarioId == $_SESSION['id']) {
                             if ($usuario->getTipoUsuario() == 1) {
                                 ?>
 
-                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><?php
+                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
                             }
                             ?>
                             <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
