@@ -2,11 +2,11 @@
 require_once "../../_com/sesiones.php";
 
 if (!haySesionIniciada() || comprobarCookieRecurdame()) redireccionar("../../user/sesion-inicio.php");
-$juegoActual= $_REQUEST['juego'];
+$juegoActual = $_REQUEST['juego'];
 
-$juego= DAO::juegoObtenerPorNombre($juegoActual);
+$juego = DAO::juegoObtenerPorNombre($juegoActual);
 
-$recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
+$recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 ?>
 
 <!DOCTYPE html>
@@ -26,26 +26,286 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <style>
+        html {
+            height: 99.7%;
+            display:flex;
+            width: 100%;
+            margin:0;
+        }
+
+        body {
+            background-image: url("../../user/IMG/sinMarcaDeAgua+Oscuro.jpg");
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            width: 100%;
+            background-color: rgba(36, 40, 59, 1);
+            flex-wrap: wrap;
+            align-items: center;
+            height: 10%;
+            border-bottom: 2px solid darkorange;
+            justify-content: center;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+            margin: 0;
+        }
+
+        .logo a {
+            display: flex;
+            width: 100%;
+            margin: 0;
+        }
+
+        .logo img {
+            margin-bottom: 10px;
+            margin-left: 20px;
+            width: 100%;
+            height: 50px;
+        }
+        main{
+            display: flex;
+            width: 100%;
+            height: 90%;
+            flex-wrap: wrap;
+        }
+        .juego{
+            display: flex;
+            width: 75%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .info{
+            display: flex;
+            width: 25%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        canvas{
+            display: block;
+            margin:0;
+            border: 2px solid darkorange;
+        }
+        .puntuacion h1 {
+            display: flex;
+            width:auto;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1.3px;
+            margin: 0;
+            align-items: center;
+        }
+        .puntuacion{
+            margin-top: 15px;
+            display: flex;
+            width: 90%;
+            flex-wrap: wrap;
+            height: 15%;
+            border-bottom: 1px solid darkorange;
+            border-radius: 10px;
+            background-color: rgba(36, 40, 59, 0.6);
+            justify-content: center;
+
+        }
+        .puntuacion div{
+            padding: 10px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width: 10%;
+            color: white;
+            font-family: 'Anton', sans-serif;
+            font-size: 16px;
+            letter-spacing: .6px;
+            margin: 0;
+        }
+        .puntuacion .recordActual{
+            display: flex;
+            width:100%;
+            padding: 10px;
+            font-size: 12px;
+            color: white;
+            font-family:'Jost', sans-serif;
+            letter-spacing: .3px;
+            text-transform: lowercase;
+            margin: 0;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .descripcion{
+            width: 90%;
+            display: flex;
+            height: 30%;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid darkorange;
+            border-radius: 10px;
+            background-color: rgba(36, 40, 59, 0.6);
+        }
+        .descripcion p{
+            display: flex;
+            width:100%;
+            padding: 10px;
+            font-size: 12px;
+            color: white;
+            font-family: 'Jost', sans-serif;
+            letter-spacing: .6px;
+            margin: 0;
+            align-items: center;
+        }
+        .record{
+            width: 90%;
+            display: flex;
+            height: 30%;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid darkorange;
+            border-radius: 10px;
+            background-color: rgba(36, 40, 59, 0.6);
+        }
+
+        .record table{
+            width: 60%;
+            display: flex;
+            height: 80%;
+            padding: 5px;
+            justify-content: center;
+        }
+        table tbody{
+            width: 90%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        tbody tr{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        th{
+
+            display: flex;
+            justify-content: space-around;
+            width:100%;
+            font-size: 12px;
+            color: white;
+            font-family: 'Jost', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            margin: 0;
+            align-items: center;
+            border-bottom: 1px solid darkorange;
+        }
+        td{
+            display: flex;
+            justify-content: space-around;
+            width:100%;
+            padding: 2px;
+            font-size: 11px;
+            color: white;
+            font-family: 'Jost', sans-serif;
+            letter-spacing: .6px;
+            margin: 0;
+            align-items: center;
+        }
+        .salir{
+            width: 90%;
+            display: flex;
+            height: 10%;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .salir a{
+            display: flex;
+            width: 50%;
+            height: 100%;
+            margin: 0;
+            text-decoration: none;
+            color: white;
+            background-color: darkorange;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 14px;
+            color: white;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: .8px;
+        }
+        .salir a:hover{
+            background-color: #ffb516;
+        }
+    </style>
+
     <title>PONG</title>
 </head>
-<style>
-    body{
-        text-align: center;
-    }
-</style>
+
 
 <body>
 <script>
-    var id="<?php echo $juego->getId();?>";
+    var id = "<?php echo $juego->getId();?>";
 
 </script>
+<nav>
+    <div class="logo">
+        <a href="../../user/index.php"><img src="../../user/IMG/logo.webp" alt=""></a>
+    </div>
 
-<canvas>
-</canvas>
+</nav>
+<main>
+    <div class="juego">
+        <canvas>
+        </canvas>
+    </div>
+    <div class="info">
+        <div class="puntuacion">
+
+            <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
+        </div>
+
+        <div class="descripcion">
+
+            <?php
+            require_once "../juego_descripcion.php";
+            ?>
+
+        </div>
+
+
+        <div class="record">
+            <?php
+            require_once "../juego_record.php";
+            ?>
+        </div>
+        <div class="salir">
+            <a href="../../user/index.php">salir</a>
+        </div>
+    </div>
+</main>
+
+
 </body>
 <script>
     // Global Variables
-    var count=0
+    var count = 0
     var DIRECTION = {
         IDLE: 0,
         UP: 1,
@@ -93,10 +353,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             this.context = this.canvas.getContext('2d');
 
             this.canvas.width = 1920;
-            this.canvas.height =1080;
+            this.canvas.height = 1080;
 
             this.canvas.style.width = (this.canvas.width / 2) + 'px';
-            this.canvas.style.height = (this.canvas.height / 2) + 'px';
+            this.canvas.style.height = (this.canvas.height / 2.5) + 'px';
 
             this.player = Paddle.new.call(this, 'left');
             this.paddle = Paddle.new.call(this, 'right');
@@ -162,7 +422,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
             // Draw the 'press any key to begin' text
 
-            this.context.fillText('Press any key to begin',
+            this.context.fillText('Pulsa cualquier tecla para empezar',
                 this.canvas.width / 2,
                 this.canvas.height / 2 + 15
             );
@@ -221,10 +481,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                         this.ball.moveX = DIRECTION.RIGHT;
 
                         beep1.play();
-                        count+=1;
-                        this.player.speed*=1.06;
-                        this.paddle.speed*=1.04;
-                        this.ball.speed *=1.06
+                        count += 1;
+                        this.player.speed *= 1.06;
+                        this.paddle.speed *= 1.04;
+                        this.ball.speed *= 1.06
                     }
                 }
 
@@ -235,10 +495,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                         this.ball.moveX = DIRECTION.LEFT;
 
                         beep1.play();
-                        count+=1;
-                        this.player.speed*=1.06;
-                        this.paddle.speed*=1.0;
-                        this.ball.speed *=1.06
+                        count += 1;
+                        this.player.speed *= 1.06;
+                        this.paddle.speed *= 1.0;
+                        this.ball.speed *= 1.06
                     }
                 }
             }
@@ -250,7 +510,10 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                 // there are not.
                 if (!rounds[this.round + 1]) {
                     this.over = true;
-                    setTimeout(function () { Pong.endGameMenu('Winner!'); }, 1000);
+                    setTimeout(function () {
+                        Pong.endGameMenu('Winner!');
+                    }, 1000);
+                    document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
                 } else {
                     // If there is another round, reset all the values and increment the round number.
                     this.color = this._generateRoundColor();
@@ -267,8 +530,11 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             // Check to see if the paddle/AI has won the round.
             else if (this.paddle.score === rounds[this.round]) {
                 this.over = true;
-                setTimeout(function () { Pong.endGameMenu('Game Over!'); }, 1000);
-                document.location.href = "../guardarPuntuacion.php?idJuego="+id+"&puntuacion=" + this.round ;
+                setTimeout(function () {
+                    Pong.endGameMenu('Game Over!');
+                }, 1000);
+                document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
+
 
             }
 
@@ -356,7 +622,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
 
             // Draw the winning score (center)
             this.context.fillText(
-                'Round ' + (this.round+1),
+                'Round ' + (this.round + 1),
                 (this.canvas.width / 2),
                 35
             );
@@ -396,15 +662,17 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             });
 
             // Stop the player from moving when there are no keys being pressed.
-            document.addEventListener('keyup', function (key) { Pong.player.move = DIRECTION.IDLE; });
+            document.addEventListener('keyup', function (key) {
+                Pong.player.move = DIRECTION.IDLE;
+            });
         },
 
         // Reset the ball location, the player turns and set a delay before the next round begins.
-        _resetTurn: function(victor, loser) {
+        _resetTurn: function (victor, loser) {
 
             this.ball = Ball.new.call(this, 10);
-            this.player.speed=9;
-            this.paddle.speed=9;
+            this.player.speed = 9;
+            this.paddle.speed = 9;
             this.turn = loser;
             this.timer = (new Date()).getTime();
 
@@ -415,7 +683,7 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
         },
 
         // Wait for a delay to have passed after each turn.
-        _turnDelayIsOver: function() {
+        _turnDelayIsOver: function () {
             return ((new Date()).getTime() - this.timer >= 1000);
         },
 
@@ -431,25 +699,5 @@ $recordActual= DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
     Pong.initialize();
 </script>
 
-<div>
-    <h1 class="puntuacion"></h1>
-    <h1 class="recordActual">Tu record actual es: <?= $recordActual ?></h1>
-</div>
 
-<div class="descripcion">
-
-    <?php
-    require_once "../juego_descripcion.php";
-    ?>
-
-</div>
-<div>
-    <a href="../../user/usuarioPantallaPrincipal.php">salir</a>
-</div>
-
-<div class="record">
-    <?php
-    require_once "../juego_record.php";
-    ?>
-</div>
 </html>
