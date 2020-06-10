@@ -407,7 +407,7 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
             for (let i = 0; i < this.cola.length; i++) {
                 if ((this.x === this.cola[i].x &&
                     this.y === this.cola[i].y)) {
-                    document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
+                    document.location.href = "../juego_guardar_puntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
                     console.log("colision");
                     this.total = 0;
                     this.cola = [];
@@ -435,7 +435,7 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                     this.y === bloque3y) ||
                 (this.x === bloque4x &&
                     this.y === bloque4y)) {
-                document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
+                document.location.href = "../juego_guardar_puntuacion.php?idJuego=" + id + "&puntuacion=" + this.total;
                 console.log("colision");
                 this.total = 0;
                 this.cola = [];

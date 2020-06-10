@@ -603,7 +603,7 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                 }
                 // si la piezas se bloquean en el tope = GAME OVER
                 if (this.y + r < 0) {
-                    document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + puntuacion;
+                    document.location.href = "../juego_guardar_puntuacion.php?idJuego=" + id + "&puntuacion=" + puntuacion;
                     //esto tengo que cambiarlo luego para que redirigja al guardar puntuacion y tal
 
                     // detener la solicitud de generar pieza

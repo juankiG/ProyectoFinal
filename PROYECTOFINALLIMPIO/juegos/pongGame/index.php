@@ -533,7 +533,7 @@ $recordActual = DAO::usuarioObtenerRecord($_SESSION['id'], $juego->getId());
                 setTimeout(function () {
                     Pong.endGameMenu('Game Over!');
                 }, 1000);
-                document.location.href = "../guardarPuntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
+                document.location.href = "../juego_guardar_puntuacion.php?idJuego=" + id + "&puntuacion=" + this.round;
 
 
             }
