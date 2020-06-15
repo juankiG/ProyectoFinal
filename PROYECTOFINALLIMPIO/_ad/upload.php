@@ -3,10 +3,12 @@ require_once "../_com/comunes-app.php";;
 //getting image data
 $product_image = $_FILES['imagen']['name'];
 $product_image_tmp = $_FILES['imagen']['tmp_name'];
-if(isset($_REQUEST["Nombrecarpeta"])){
-    $directorio="../juegos/".$_REQUEST['Nombrecarpeta'];
-    mkdir($directorio, 755);
-}
+
+    $directorio="/var/www/html/php/ProyectoFP/PROYECTOFINALLIMPIO/juegos/".$_REQUEST['Nombrecarpeta'];
+    mkdir($directorio);
+chmod($directorio,0755);
+
+
 
 move_uploaded_file($product_image_tmp,".././contenido/$product_image");
 $juego=$_REQUEST['nombre'];

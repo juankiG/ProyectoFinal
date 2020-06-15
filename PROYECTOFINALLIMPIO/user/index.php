@@ -41,7 +41,7 @@ if (isset($_REQUEST['Enviar']))
                 <div class="submenu">
                     <ul>
                         <li><a style="padding: 0">
-                                <form class="ver-perfil-form" action="perfil_usuario.php" method="post">
+                                <form class="ver-perfil-form" action="perfil_usuario1.php" method="post">
                                     <input type="submit" value="Ver mi perfil">
                                     <input type="hidden" name="nombreUsuario" value="<?= $_SESSION["nombreUsuario"] ?>">
                                 </form>
