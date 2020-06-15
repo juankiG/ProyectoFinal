@@ -33,7 +33,7 @@ require_once "../_com/comunes-app.php";
 
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/estilo_perfil.css">
-        <title><?= $usuario->getNombreUsuario() ?></title>
+        
     </head>
     <body>
 
