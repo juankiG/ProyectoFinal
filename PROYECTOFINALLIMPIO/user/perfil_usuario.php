@@ -5,9 +5,6 @@ $usuarioId = DAO::usuarioObtenerIdPorNombreUsuario($_REQUEST['nombreUsuario']);
 
 
 
-?>
-
-<?php
 
     $usuario = DAO::usuarioObtenerPorId($_SESSION['id']);
     $nomre_usuario = $usuario->getNombreUsuario();
