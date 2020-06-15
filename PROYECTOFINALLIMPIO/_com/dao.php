@@ -269,7 +269,7 @@ class DAO
 
     public static function usuarioSolicitudesPendientes(int $id)
     {
-        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=2", [$id]);
+        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=2", [$id]);
 
         return $rs;
     }
@@ -277,7 +277,7 @@ class DAO
     public static function usuarioSolicitudesAceptadas(int $id)
     {
         $rs = self::ejecutarConsulta
-        ("SELECT * FROM solicitudesAmistad WHERE (idUsuarioSolicitado=? 
+        ("SELECT * FROM solicitudesamistad WHERE (idUsuarioSolicitado=? 
                 OR idUsuarioEnviador=?) AND estadoSolicitud=1", [$id, $id]);
 
         return $rs;
@@ -285,7 +285,7 @@ class DAO
 
     public static function usuarioSolicitudesRechazadas(int $id)
     {
-        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=0", [$id]);
+        $rs = self::ejecutarConsulta("SELECT * FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND estadoSolicitud=0", [$id]);
 
         return $rs;
     }
@@ -293,10 +293,10 @@ class DAO
     public static function usuarioEliminarSolicitud(int $idReceptor, int $idEnviador)
     {
         $rs = self::ejecutarConsulta
-        ("DELETE FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("DELETE FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idReceptor, $idEnviador]);
         $rs = self::ejecutarConsulta
-        ("DELETE FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("DELETE FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idEnviador, $idReceptor]);
 
     }
@@ -311,7 +311,7 @@ class DAO
 
     public static function usuarioAceptarSolicitud(int $idReceptor, int $idEnviador){
         $rs = self::ejecutarConsulta
-        ("UPDATE solicitudesAmistad SET estadoSolicitud=1 WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("UPDATE solicitudesamistad SET estadoSolicitud=1 WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idReceptor, $idEnviador]);
     }
 
@@ -323,17 +323,17 @@ class DAO
 
     public static function usuarioRechazarSolicitud(int $idReceptor, int $idEnviador){
         $rs = self::ejecutarConsulta
-        ("UPDATE solicitudesAmistad SET estadoSolicitud=0 WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("UPDATE solicitudesamistad SET estadoSolicitud=0 WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idReceptor, $idEnviador]);
     }
 
     public static function comprobarRelacionAmistad(int $idUsuarioLoggeado, int $idUsuarioVisitado){
 
         $rsUsuarioLoggeado = self::ejecutarConsulta
-        ("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("SELECT * FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idUsuarioLoggeado, $idUsuarioVisitado]);
         $rsUsuarioVisitado = self::ejecutarConsulta
-        ("SELECT * FROM solicitudesAmistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
+        ("SELECT * FROM solicitudesamistad WHERE idUsuarioSolicitado=? AND idUsuarioEnviador=?",
             [$idUsuarioVisitado, $idUsuarioLoggeado]);
 
         if(!$rsUsuarioLoggeado){
