@@ -10,8 +10,8 @@ class DAO
     private static function obtenerPdoConexionBD()
     {
         $servidor = "localhost";
-       $identificador = "alumno";
-        $contrasenna = "1234";
+       $identificador = "root";
+        $contrasenna = "";
         $bd = "proyectofinaldb"; // Schema
         $opciones = [
             PDO::ATTR_EMULATE_PREPARES => false, // Modo emulación desactivado para prepared statements "reales"
@@ -20,7 +20,7 @@ class DAO
         ];
 
         try {
-            $pdo = new PDO("mysql:host=$servidor;port=8888;dbname=$bd;charset=utf8", $identificador, $contrasenna, $opciones);
+            $pdo = new PDO("mysql:host=$servidor;dbname=$bd;charset=utf8", $identificador, $contrasenna, $opciones);
         } catch (Exception $e) {
             error_log("Error al conectar: " . $e->getMessage());
             exit("Error al conectar" . $e->getMessage());
