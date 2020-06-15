@@ -154,15 +154,7 @@ if ($usuarioId == $_SESSION['id']) {
 
     $usuario = DAO::usuarioObtenerPorId($usuarioId);
 
-    //mostrar record
-    $tetris = DAO::juegoObtenerPorNombre("tetris");
-    $record_tetris = DAO::usuarioObtenerRecord($usuarioId, $tetris->getId());
 
-    $pong = DAO::juegoObtenerPorNombre("pong");
-    $record_pong = DAO::usuarioObtenerRecord($usuarioId, $pong->getId());
-
-    $snake = DAO::juegoObtenerPorNombre("snake");
-    $record_snake = DAO::usuarioObtenerRecord($usuarioId, $snake->getId());
 
 
     //relacion de session id con id del perfil visitado
@@ -302,18 +294,23 @@ if ($usuarioId == $_SESSION['id']) {
                                 <th>Juego</th>
                                 <th>Puntuación</th>
                             </tr>
-                            <tr>
-                                <td>Tetris</td>
-                                <td><?=$record_tetris?></td>
-                            </tr>
-                            <tr>
-                                <td>Pong</td>
-                                <td><?=$record_pong?></td>
-                            </tr>
-                            <tr>
-                                <td>Snake</td>
-                                <td><?=$record_snake?></td>
-                            </tr>
+                            <?php
+                            foreach ($juegos as $juego) {
+                                $nombreJuego = $juego->getNombre();
+                                $record = DAO::usuarioObtenerRecord($usuarioId, $juego->getId());
+
+
+                                ?>
+
+
+                                <tr>
+                                    <td><?= $nombreJuego ?></td>
+                                    <td><?= $record ?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+
                         </table>
                     </div>
                 </div>
