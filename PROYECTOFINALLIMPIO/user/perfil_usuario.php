@@ -1,7 +1,6 @@
 <?php
 require_once "../_com/comunes-app.php";
 
-$usuarioId = DAO::usuarioObtenerIdPorNombreUsuario($_REQUEST['nombreUsuario']);
 
 
 
