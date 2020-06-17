@@ -4,6 +4,9 @@ require_once "../_com/emailFuncion.php";
 
 if(isset($_REQUEST['email'])){
     $email=$_REQUEST['email'];
+    if(DAO::usuarioObtenerPorCorreo($email)==null){
+        redireccionar("usuario_recuperar_contrasenna.php?noEmail=true");
+    }
     $cliente=DAO::usuarioObtenerPorCorreo($email);
 
 }

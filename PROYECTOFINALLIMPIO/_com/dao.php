@@ -10,8 +10,8 @@ class DAO
     private static function obtenerPdoConexionBD()
     {
         $servidor = "localhost";
-       $identificador = "root";
-        $contrasenna = "";
+       $identificador = "alumno";
+        $contrasenna = "1234";
         $bd = "proyectofinaldb"; // Schema
         $opciones = [
             PDO::ATTR_EMULATE_PREPARES => false, // Modo emulación desactivado para prepared statements "reales"
@@ -94,7 +94,7 @@ class DAO
          self::ejecutarActualizacion("UPDATE usuarios SET contrasenna=? WHERE email=?", [$contrasenna,$email ]);
 
     }
-    public static function usuarioObtenerPorCorreo($correo): Usuario
+    public static function usuarioObtenerPorCorreo($correo)
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE email=?",
             [$correo]);
