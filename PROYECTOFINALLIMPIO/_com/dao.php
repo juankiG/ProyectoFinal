@@ -94,7 +94,7 @@ class DAO
          self::ejecutarActualizacion("UPDATE usuarios SET contrasenna=? WHERE email=?", [$contrasenna,$email ]);
 
     }
-    public static function usuarioObtenerPorCorreo($correo): Usuario
+    public static function usuarioObtenerPorCorreo($correo)
     {
         $rs = self::ejecutarConsulta("SELECT * FROM usuarios WHERE email=?",
             [$correo]);

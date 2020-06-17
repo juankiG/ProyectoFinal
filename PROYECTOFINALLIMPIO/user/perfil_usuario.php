@@ -154,7 +154,7 @@ if ($usuarioId == $_SESSION['id']) {
 
     $usuario = DAO::usuarioObtenerPorId($usuarioId);
 
-
+$juegos=DAO::juegoObtenerTodos();
 
 
     //relacion de session id con id del perfil visitado
