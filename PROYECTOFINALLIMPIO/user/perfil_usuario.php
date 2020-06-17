@@ -28,7 +28,7 @@ if ($usuarioId == $_SESSION['id']) {
     $solicitudesRechazadas = DAO::usuarioSolicitudesRechazadas($_SESSION['id']);
 
 
-    $juegos= DAO::juegoObtenerTodos()
+    $juegos = DAO::juegoObtenerTodos()
     ?>
     <html>
     <head>
@@ -70,7 +70,8 @@ if ($usuarioId == $_SESSION['id']) {
                             if ($usuario->getTipoUsuario() == 1) {
                                 ?>
 
-                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
+                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li>
+                                <li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
                             }
                             ?>
                             <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -101,33 +102,33 @@ if ($usuarioId == $_SESSION['id']) {
             <div class="mostrar-info">
                 <div class="info">
                     <p>Nombre de usuario </p>
-                    <input type="text" disabled value="  <?= $nomre_usuario ?>" >
+                    <input type="text" disabled value="  <?= $nomre_usuario ?>">
                     <p>Correo electrónico </p>
                     <input type="text" disabled value="  <?= $correo_usuario ?>">
                     <p>Rango en Minijuegos </p>
                     <input type="text" disabled value="  <?= $rango ?>">
                     <div class="records">
-                      <table>
-                             <tr>
+                        <table>
+                            <tr>
                                 <th>Juego</th>
                                 <th>Puntuación</th>
                             </tr>
-                         <?php
-                        foreach ($juegos as $juego) {
-                            $nombreJuego = $juego->getNombre();
-                            $record = DAO::usuarioObtenerRecord($usuarioId, $juego->getId());
-
-
-                            ?>
-
-
-                            <tr>
-                                <td><?= $nombreJuego ?></td>
-                                <td><?= $record ?></td>
-                            </tr>
                             <?php
-                        }
- ?>
+                            foreach ($juegos as $juego) {
+                                $nombreJuego = $juego->getNombre();
+                                $record = DAO::usuarioObtenerRecord($usuarioId, $juego->getId());
+
+
+                                ?>
+
+
+                                <tr>
+                                    <td><?= $nombreJuego ?></td>
+                                    <td><?= $record ?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
 
                         </table>
                     </div>
@@ -154,7 +155,7 @@ if ($usuarioId == $_SESSION['id']) {
 
     $usuario = DAO::usuarioObtenerPorId($usuarioId);
 
-$juegos=DAO::juegoObtenerTodos();
+    $juegos = DAO::juegoObtenerTodos();
 
 
     //relacion de session id con id del perfil visitado
@@ -200,7 +201,8 @@ $juegos=DAO::juegoObtenerTodos();
                             if ($usuario->getTipoUsuario() == 1) {
                                 ?>
 
-                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li><li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
+                                <li><a href="../_ad/ad_subir_juego.php">subir juego</a></li>
+                                <li><a href="../_ad/ad_lista_usuarios.php">Usuarios</a></li><?php
                             }
                             ?>
                             <li><a href="sesion-cerrar.php">cerrar sesion</a></li>
@@ -239,7 +241,8 @@ $juegos=DAO::juegoObtenerTodos();
                             break;
                         case 'rechazadaPorUsuarioSesion':
                             ?>
-                            <p>Has rechazado la solicitud de <?= $usuario->getNombreUsuario() ?>, revisa tu perfil para aceptarla o
+                            <p>Has rechazado la solicitud de <?= $usuario->getNombreUsuario() ?>, revisa tu perfil para
+                                aceptarla o
                                 eliminarla</p>
                             <?php
                             break;
