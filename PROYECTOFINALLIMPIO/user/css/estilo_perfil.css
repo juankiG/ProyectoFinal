@@ -507,7 +507,7 @@ p {
     height: 10%;
     margin-top: 5px;
     margin-bottom: 0;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 }
 
