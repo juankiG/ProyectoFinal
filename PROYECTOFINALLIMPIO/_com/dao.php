@@ -10,8 +10,8 @@ class DAO
     private static function obtenerPdoConexionBD()
     {
         $servidor = "localhost";
-       $identificador = "root";
-        $contrasenna = "";
+       $identificador = "alumno";
+        $contrasenna = "1234";
         $bd = "proyectofinaldb"; // Schema
         $opciones = [
             PDO::ATTR_EMULATE_PREPARES => false, // Modo emulación desactivado para prepared statements "reales"
